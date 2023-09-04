@@ -1,12 +1,17 @@
 .header {
     border-bottom: 1px solid black;
+    
 }
 
 .navContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    height: 100px;
+
+    .logo img {
+        width: 100%;
+    }
 
     nav {
         display: flex;

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import styles from './Navbar.module.scss';
 import { Container } from '../Container/Container';
-import logo from 'src/assets/logo/logo.png';
+import styles from './Navbar.module.scss';
+import logo from 'src/assets/logo/owl.png';
 
 export const Navbar = () => {
     return (
@@ -9,7 +9,14 @@ export const Navbar = () => {
             <Container>
                 <div className={styles.navContainer}>
                     <div className="logo">
-                        <Link to="/">Logo</Link>
+                        <Link to="/">
+                            <img
+                                src={logo}
+                                alt="owl logo"
+                                height="60"
+                                width="60"
+                            />
+                        </Link>
                     </div>
                     <nav>
                         <Link to="/store">Store</Link>
