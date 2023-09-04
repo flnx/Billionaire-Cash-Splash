@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.scss';
 import { Container } from '../Container/Container';
+import logo from 'src/assets/logo/logo.png';
 
 export const Navbar = () => {
     return (
