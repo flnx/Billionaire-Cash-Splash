@@ -1,9 +1,11 @@
 import { Container } from "src/components/Container/Container";
+import { Showcase } from "src/components/Showcase/Showcase";
 
 export const Home = () => {
     return (
         <Container>
-            <h1>home</h1>
+            <Showcase />
+
         </Container>
     );
 };
