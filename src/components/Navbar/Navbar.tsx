@@ -4,6 +4,7 @@ import styles from './Navbar.module.scss';
 import logo from 'src/assets/logo/owl.png';
 
 export const Navbar = () => {
+    console.log(logo)
     return (
         <header className={styles.header}>
             <Container>
