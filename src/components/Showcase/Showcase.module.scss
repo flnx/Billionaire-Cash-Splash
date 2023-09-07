@@ -1,4 +1,18 @@
-.cards {
-    display: flex;
-    gap: 2rem;
+section {
+    background:  rgb(153, 143, 114);
+    border-radius: 5px;
+    
+    .title {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .cards {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+section > * {
+    padding: 1rem 3rem 3rem;
 }
