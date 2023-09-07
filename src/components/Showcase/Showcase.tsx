@@ -6,7 +6,7 @@ import { Card } from './Card';
 
 export const Showcase = () => {
     return (
-        <section>
+        <section className={styles.section}>
             <Container>
                 <h1 className={styles.title}>Pick a Billionaire. Raid Their Wallet. Live Large!</h1>
                 <div className={styles.cards}>

@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "name": "Cat Battle Armor",
+        "price": 799,
+        "imageUrls": ["/images/products/Cat Battle Armor/1.webp"]
+    },
+    {
+        "id": 14.99,
+        "name": "Meat Shredder Claws",
+        "price": 19,
+        "imageUrls": ["/images/products/Charcoal Companion Meat Shredder Claws/1.jpg"]
+    },
+    {
+        "id": 3,
+        "name": "Coca Cola",
+        "price": 0.99,
+        "imageUrls": ["/images/products/Coca Cola/1.jpg"]
+    },
+    {
+        "id": 4,
+        "name": "Finger Protectors",
+        "price": 19.99,
+        "imageUrls": ["/images/products/Finger Protectors/1.jpg"]
+    },
+    {
+        "id": 5,
+        "name": "Gaming PC",
+        "price": 2499,
+        "imageUrls": ["/images/products/Gaming PC/1.png"]
+    },
+    {
+        "id": 6,
+        "name": "Hair Transplant",
+        "price": 15000,
+        "imageUrls": ["/images/products/Hair Transplant/1.jpg"]
+    },
+    {
+        "id": 7,
+        "name": "Hippopotamus Sofa",
+        "price": 2020,
+        "imageUrls": ["/images/products/Hippopotamus Sofa/1.jpg"]
+    },
+    {
+        "id": 8,
+        "name": "Moonbike",
+        "price": 8000,
+        "imageUrls": ["/images/products/Moonbike/1.webp"]
+    },
+    {
+        "id": 9,
+        "name": "NC Pillow",
+        "price": 19.99,
+        "imageUrls": ["/images/products/NC Pillow/1.jpg"]
+    },
+    {
+        "id": 10,
+        "name": "Pizza",
+        "price": 6.50,
+        "imageUrls": ["/images/products/Pizza/1.jpg"]
+    },
+    {
+        "id": 11,
+        "name": "Private Jet",
+        "price": 75000000,
+        "imageUrls": ["/images/products/Private Jet/1.jpg"]
+    },
+    {
+        "id": 12,
+        "name": "Sherp ATV",
+        "price": 115000,
+        "imageUrls": ["/images/products/Sherp ATV/1.png"]
+    },
+    {
+        "id": 13,
+        "name": "Star Wars Free Pit",
+        "price": 1500,
+        "imageUrls": ["/images/products/Star Wars Free Pit/1.jpg"]
+    },
+    {
+        "id": 14,
+        "name": "Stormtrooper Voice Changer Helmet",
+        "price": 199,
+        "imageUrls": ["/images/products/Stormtrooper Voice Changer Helmet/1.jpg"]
+    },
+    {
+        "id": 15,
+        "name": "Tesla Model S",
+        "price": 89000,
+        "imageUrls": ["/images/products/Tesla Model S/1.png"]
+    },
+    {
+        "id": 16,
+        "name": "Chicken Harness",
+        "price": 13.99,
+        "imageUrls": ["/images/products/Chicken Harness/1.jpg"]
+    }
+]
