@@ -1,12 +1,13 @@
 .card {
     flex: 1;
+    padding-bottom: 0.75rem;
     cursor: pointer;
     opacity: 0.9;
     border: 1px solid black;
     border-radius: 5px;
 
     .header {
-        aspect-ratio: 1/ 1;
+        aspect-ratio: 1 / 1;
         img {
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
@@ -18,5 +19,13 @@
 
     .body {
         padding: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: center;
     }
 }

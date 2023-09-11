@@ -15,7 +15,7 @@
         "id": 3,
         "name": "Coca Cola",
         "price": 0.99,
-        "imageUrls": ["/images/products/Coca Cola/1.jpg"]
+        "imageUrls": ["/images/products/Coca Cola/1.png"]
     },
     {
         "id": 4,
@@ -33,7 +33,7 @@
         "id": 6,
         "name": "Hair Transplant",
         "price": 15000,
-        "imageUrls": ["/images/products/Hair Transplant/1.jpg"]
+        "imageUrls": ["/images/products/Hair Transplant/1.png"]
     },
     {
         "id": 7,
@@ -45,7 +45,7 @@
         "id": 8,
         "name": "Moonbike",
         "price": 8000,
-        "imageUrls": ["/images/products/Moonbike/1.webp"]
+        "imageUrls": ["/images/products/Moonbike/1.png"]
     },
     {
         "id": 9,
@@ -63,7 +63,7 @@
         "id": 11,
         "name": "Private Jet",
         "price": 75000000,
-        "imageUrls": ["/images/products/Private Jet/1.jpg"]
+        "imageUrls": ["/images/products/Private Jet/1.png"]
     },
     {
         "id": 12,

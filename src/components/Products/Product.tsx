@@ -1,3 +1,5 @@
+import { PrimaryButton } from '../Buttons/PrimaryButton';
+import { QuantityBar } from '../QuantityBar/QuantityBar';
 import styles from './Product.module.scss';
 
 type ProductProps = {
@@ -17,6 +19,12 @@ export const Product = ({ name, price, imageUrls }: ProductProps) => {
                 <h3>{name}</h3>
                 <span aria-label="Price">{price}</span>
             </div>
+
+            <div className={styles.footer}>
+                <PrimaryButton>+ Add To Cart</PrimaryButton>
+            </div>
+
+            <QuantityBar />
         </div>
     );
 };
