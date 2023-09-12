@@ -21,7 +21,7 @@ export const Product = ({ name, price, imageUrls }: ProductProps) => {
             </div>
 
             <div className={styles.footer}>
-                <PrimaryButton>+ Add To Cart</PrimaryButton>
+                {/* <PrimaryButton>+ Add To Cart</PrimaryButton> */}
             </div>
 
             <QuantityBar />
