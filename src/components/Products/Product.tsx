@@ -10,12 +10,11 @@ type ProductProps = {
     imageUrls: string[];
 };
 
-export const Product = ({ name, price, imageUrls, id }: ProductProps) => {
-    const { state, increaseCartQty, getItemQty } = useCart();
+export const Product = (product: ProductProps) => {
+    const { getItemQty } = useCart();
+    const { name, price, imageUrls, id } = product;
 
     const qty = getItemQty(id);
-
-    console.log(qty);
 
     return (
         <div className={styles.card}>
@@ -32,7 +31,7 @@ export const Product = ({ name, price, imageUrls, id }: ProductProps) => {
                 {/* <PrimaryButton>+ Add To Cart</PrimaryButton> */}
             </div>
 
-            {/* <QuantityBar id={id} /> */}
+            <QuantityBar {...product} qty={qty} />
         </div>
     );
 };

@@ -17,7 +17,10 @@ export type StateType = {
     cart: CartItemType[];
 };
 
-export const shoppingCartReducer = (state: StateType, action: ReducerActions) => {
+export const shoppingCartReducer = (
+    state: StateType,
+    action: ReducerActions
+) => {
     switch (action.type) {
         case 'INCREASE': {
             if (!action.payload) {
@@ -28,14 +31,25 @@ export const shoppingCartReducer = (state: StateType, action: ReducerActions) =>
 
             const { id } = action.payload;
 
-            const updatedCart = state.cart.map((item) =>
-                item.id === id ? { ...item, qty: (item.qty || 0) + 1 } : item
-            );
+            const existingItem = state.cart.find((item) => item.id === id);
+
+            if (existingItem) {
+                const updatedCart = state.cart.map((item) =>
+                    item.id === id
+                        ? { ...item, qty: (item.qty || 0) + 1 }
+                        : item
+                );
+
+                return {
+                    ...state,
+                    cart: updatedCart,
+                };
+            }
 
             return {
                 ...state,
-                cart: updatedCart,
-            };
+                cart: [...state.cart, {...action.payload, qty: 1}]
+            }
         }
 
         default:
