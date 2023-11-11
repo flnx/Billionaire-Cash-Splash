@@ -11,10 +11,11 @@ type ProductProps = {
 };
 
 export const Product = ({ name, price, imageUrls, id }: ProductProps) => {
-    const { state, increaseCartQty } = useCart();
+    const { state, increaseCartQty, getItemQty } = useCart();
 
-    console.log(state);
-    console.log(increaseCartQty);
+    const qty = getItemQty(id);
+
+    console.log(qty);
 
     return (
         <div className={styles.card}>
