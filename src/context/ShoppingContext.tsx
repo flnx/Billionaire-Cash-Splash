@@ -1,23 +1,48 @@
-import { createContext } from 'react';
+import { createContext, useReducer } from 'react';
+import { shoppingCartReducer, StateType, CartItemType } from 'src/utils/ShoppingCartReducer';
+import { useContext } from 'react';
 
 type ShoppingCardProps = {
     children: React.ReactNode;
 };
 
-const ShoppingContext = createContext({});
+type ShoppingContextType = {
+    state: StateType;
+    increaseCartQty: (item: CartItemType) => void;
+    // decreaseCartQty: () => void;
+    // getItemQty: () => void;
+    // removeCartItem: () => void;
+};
 
-const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
-    const increaseCartQty = () => {};
+const ShoppingContext = createContext<ShoppingContextType | undefined>(
+    undefined
+);
 
-    const decreaseCartQty = () => {};
+export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
+    const [state, dispatch] = useReducer(shoppingCartReducer, { cart: [] });
 
-    const getItemQty = () => {};
+    const increaseCartQty = (item: CartItemType) => {
+        dispatch({
+            type: 'INCREASE',
+            payload: item,
+        });
+    };
 
-    const removeCartItem = () => {};
+    // const decreaseCartQty = () => {};
+
+    // const getItemQty = () => {}
+
+    // const removeCartItem = () => {};
 
     return (
-        <ShoppingContext.Provider value={'asd'}>
+        <ShoppingContext.Provider value={{ increaseCartQty, state }}>
             {children}
         </ShoppingContext.Provider>
     );
+};
+
+export const useCart = () => {
+    const context = useContext(ShoppingContext);
+
+    return context;
 };

@@ -1,6 +1,10 @@
 import styles from './QuantityBar.module.scss';
 
-export const QuantityBar = () => {
+type QuantityBarProps = {
+    id: number;
+};
+
+export const QuantityBar = ({ id }: QuantityBarProps) => {
     return (
         <div className={styles.qBar}>
             <button>-</button>

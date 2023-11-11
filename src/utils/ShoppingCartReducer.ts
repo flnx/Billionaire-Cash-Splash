@@ -1,6 +1,6 @@
 type ActionType = 'INCREASE' | 'DECREASE' | 'QUANTITY' | 'REMOVE';
 
-type CartItemType = {
+export type CartItemType = {
     id: number;
     name: string;
     price: number;
