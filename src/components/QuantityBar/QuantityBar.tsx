@@ -10,13 +10,13 @@ type QuantityBarProps = {
 };
 
 export const QuantityBar = (product: QuantityBarProps) => {
-    const { increaseCartQty } = useCart();
+    const { increaseCartQty, decreaseCartQty } = useCart();
 
     return (
         <div className={styles.qBar}>
-            <button>-</button>
+            <button onClick={() => decreaseCartQty(product)}>-</button>
             <div className={styles.inCart}>
-                <input type="number" value={product.qty} readOnly/>
+                <input type="number" value={product.qty} readOnly />
                 <span className={styles.text}>in cart</span>
             </div>
             <button onClick={() => increaseCartQty(product)}>+</button>
