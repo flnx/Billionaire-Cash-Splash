@@ -30,7 +30,6 @@ export const shoppingCartReducer = (
             }
 
             const { id } = action.payload;
-
             const existingItem = state.cart.find((item) => item.id === id);
 
             if (existingItem) {
@@ -48,8 +47,34 @@ export const shoppingCartReducer = (
 
             return {
                 ...state,
-                cart: [...state.cart, {...action.payload, qty: 1}]
+                cart: [...state.cart, { ...action.payload, qty: 1 }],
+            };
+        }
+
+        case 'DECREASE': {
+            if (!action.payload) {
+                throw new Error(
+                    'action.payload is missing in DECREASE section'
+                );
             }
+
+            const { id } = action.payload;
+            const existingItem = state.cart.find((item) => item.id === id);
+
+            if (existingItem) {
+                const updatedCart = state.cart
+                    .map((item) =>
+                        item.id === id ? { ...item, qty: item.qty - 1 } : item
+                    )
+                    .filter((item) => item.qty > 0);
+
+                return {
+                    ...state,
+                    cart: updatedCart,
+                };
+            }
+
+            return state;
         }
 
         default:
