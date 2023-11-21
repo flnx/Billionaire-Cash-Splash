@@ -1,9 +1,5 @@
 import { createContext, useReducer } from 'react';
-import {
-    shoppingCartReducer,
-    StateType,
-    CartItemType,
-} from 'src/utils/ShoppingCartReducer';
+import { shoppingCartReducer, StateType, CartItemType } from 'src/utils/ShoppingCartReducer';
 import { useContext } from 'react';
 
 type ShoppingCardProps = {
@@ -18,9 +14,7 @@ type ShoppingContextType = {
     // removeCartItem: () => void;
 };
 
-const ShoppingContext = createContext<ShoppingContextType | undefined>(
-    undefined
-);
+const ShoppingContext = createContext<ShoppingContextType | undefined>(undefined);
 
 export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
     const [state, dispatch] = useReducer(shoppingCartReducer, { cart: [] });
@@ -48,9 +42,7 @@ export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
     // const removeCartItem = () => {};
 
     return (
-        <ShoppingContext.Provider
-            value={{ increaseCartQty, state, getItemQty, decreaseCartQty }}
-        >
+        <ShoppingContext.Provider value={{ increaseCartQty, state, getItemQty, decreaseCartQty }}>
             {children}
         </ShoppingContext.Provider>
     );
@@ -60,9 +52,7 @@ export const useCart = (): ShoppingContextType => {
     const context = useContext(ShoppingContext);
 
     if (!context) {
-        throw new Error(
-            'useCart must be used within a ShoppingContextProvider'
-        );
+        throw new Error('useCart must be used within a ShoppingContextProvider');
     }
 
     return context;

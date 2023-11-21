@@ -17,16 +17,11 @@ export type StateType = {
     cart: CartItemType[];
 };
 
-export const shoppingCartReducer = (
-    state: StateType,
-    action: ReducerActions
-) => {
+export const shoppingCartReducer = (state: StateType, action: ReducerActions) => {
     switch (action.type) {
         case 'INCREASE': {
             if (!action.payload) {
-                throw new Error(
-                    'action.payload is missing in INCREASE section'
-                );
+                throw new Error('action.payload is missing in INCREASE section');
             }
 
             const { id } = action.payload;
@@ -53,9 +48,7 @@ export const shoppingCartReducer = (
 
         case 'DECREASE': {
             if (!action.payload) {
-                throw new Error(
-                    'action.payload is missing in DECREASE section'
-                );
+                throw new Error('action.payload is missing in DECREASE section');
             }
 
             const { id } = action.payload;
