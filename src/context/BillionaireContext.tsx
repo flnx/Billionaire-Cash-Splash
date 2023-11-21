@@ -14,19 +14,22 @@ type billionaireType = {
 type BillionaireContextType = {
     selectBillionaire: (selectedBillionaire: billionaireType) => void;
     billionaire: billionaireType | null;
+    isBillionaireSelected: boolean;
 }
 
 const BillionaireContext = createContext<BillionaireContextType | undefined>(undefined);
 
-export const BillionaireContextProvider = ({children }: BillionareContextProps) => {
+export const BillionaireContextProvider = ({ children }: BillionareContextProps) => {
     const [billionaire, setBillionaire] = useState<null | billionaireType>(null);
 
     const selectBillionaire = (selectedBillionaire: billionaireType) => {
         setBillionaire(selectedBillionaire);
     };
 
+    const hasBillionaire = billionaire ? true : false;
+
     return (
-        <BillionaireContext.Provider value={{ selectBillionaire, billionaire }}>
+        <BillionaireContext.Provider value={{ selectBillionaire, billionaire, isBillionaireSelected: hasBillionaire }}>
             {children}
         </BillionaireContext.Provider>
     );

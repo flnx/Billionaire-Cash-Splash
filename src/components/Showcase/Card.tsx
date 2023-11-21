@@ -1,14 +1,21 @@
+import { useBillionaire } from 'src/context/BillionaireContext';
 import styles from './Card.module.scss';
 
 type CardProps = {
+    id: number;
     imgUrl: string;
     name: string;
     netWorth: number;
 };
 
-export const Card = ({ imgUrl, name, netWorth }: CardProps) => {
+export const Card = ({ imgUrl, name, netWorth, id }: CardProps) => {
+    const { selectBillionaire } = useBillionaire();
+
     return (
-        <div className={styles.card}>
+        <div
+            className={styles.card}
+            onClick={() => selectBillionaire({ imgUrl, name, netWorth, id })}
+        >
             <div className={styles.header}>
                 <img src={imgUrl} alt={name} />
             </div>
