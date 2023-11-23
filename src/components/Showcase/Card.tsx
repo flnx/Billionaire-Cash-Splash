@@ -9,7 +9,9 @@ type CardProps = {
 };
 
 export const Card = ({ imgUrl, name, netWorth, id }: CardProps) => {
-    const { selectBillionaire } = useBillionaire();
+    const { selectBillionaire, billionaire } = useBillionaire();
+
+    const isCurrentlySelected = billionaire?.id === id;
 
     return (
         <div
@@ -23,6 +25,7 @@ export const Card = ({ imgUrl, name, netWorth, id }: CardProps) => {
             <div className={styles.body}>
                 <h3>{name}</h3>
                 <span aria-label="Net Worth">{netWorth}</span>
+                {isCurrentlySelected ? "LOL" : ''}
             </div>
         </div>
     );
