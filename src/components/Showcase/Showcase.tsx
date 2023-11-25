@@ -8,7 +8,9 @@ export const Showcase = () => {
     return (
         <section className={styles.section}>
             <Container>
-                <h1 className={styles.title}>Pick a Billionaire. Raid Their Wallet. Live Large!</h1>
+                <h1 className={styles.title}>
+                    Pick a Billionaire. Raid Their Wallet. Live Large!
+                </h1>
                 <div className={styles.cards}>
                     {billionairesData.map((billionaire) => (
                         <Card key={billionaire.id} {...billionaire} />

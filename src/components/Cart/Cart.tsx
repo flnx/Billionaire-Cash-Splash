@@ -1,5 +1,6 @@
 import { ShoppingCartSimple, X } from '@phosphor-icons/react';
 import styles from './Cart.module.scss';
+import { CartItem } from './CartItem';
 
 export const Cart = () => {
     return (
@@ -10,29 +11,13 @@ export const Cart = () => {
                     <span>your cart</span>
                     <X size={32} />
                 </div>
-                <div className="items">
-                    <div className="item">
-                        Item
-                        {/* <div className="image">
-
-                    </div>
-
-                    <div className="product-info">
-                    <p className="name">
-                    
-                    </p>
-                    
-                    <div className="price"></div>
-                    
-                    <div className="quantityBar">
-                    + -
-                    </div>
-                </div> */}
-                    </div>
-                </div>
+                <section className={styles.items}>
+                    <CartItem />
+                    <CartItem />
+                </section>
 
                 <div className={styles.checkout}>
-                    <div>
+                    <div className={styles.total}>
                         <span>Subtotal:</span>
                         <span>$3666</span>
                     </div>

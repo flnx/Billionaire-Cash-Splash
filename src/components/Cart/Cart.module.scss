@@ -27,6 +27,16 @@
         display: grid;
         gap: 0.35rem;
 
+        .total {
+            border-top: 1px solid rgb(128, 128, 128, 0.37);
+            border-bottom: 1px solid rgb(128, 128, 128, 0.37);
+            padding: 1rem 0;
+            font-size: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
         button {
             display: block;
             width: 100%;

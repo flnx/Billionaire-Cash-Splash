@@ -1,0 +1,38 @@
+.item:not(:last-of-type) {
+    border-bottom: 1px solid #000;
+}
+
+.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+        width: 100px;
+        height: 65px;
+        object-fit: cover;
+    }
+
+    .info > * {
+        margin-bottom: 0.15rem;
+    }
+
+    .qBar {
+        display: flex;
+        gap: 0.55rem;
+        align-items: center;
+
+        .icon {
+            border: 1px solid #000;
+            border-radius: 50%;
+        }
+    }
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    margin-left: auto;
+}
