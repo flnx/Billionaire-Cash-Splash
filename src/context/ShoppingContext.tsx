@@ -12,6 +12,7 @@ type ShoppingContextType = {
     increaseCartQty: (item: CartItemType) => void;
     decreaseCartQty: (item: CartItemType) => void;
     getItemQty: (id: number) => number;
+    getCartItems: () => CartItemType[];
     // removeCartItem: () => void;
 };
 
@@ -34,6 +35,12 @@ export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
         });
     };
 
+    const getCartItems = () => {
+        const items = state.cart.filter(i => i.qty > 0);
+
+        return items;
+    }
+
     const getItemQty = (id: number): number => {
         const item = state.cart.find((i) => i.id === id);
 
@@ -43,7 +50,15 @@ export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
     // const removeCartItem = () => {};
 
     return (
-        <ShoppingContext.Provider value={{ increaseCartQty, state, getItemQty, decreaseCartQty }}>
+        <ShoppingContext.Provider 
+            value={{ 
+                increaseCartQty, 
+                state, 
+                getItemQty, 
+                decreaseCartQty, 
+                getCartItems,
+            }}
+        >
             {children}
             <Cart />
         </ShoppingContext.Provider>

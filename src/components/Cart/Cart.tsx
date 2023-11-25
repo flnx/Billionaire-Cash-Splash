@@ -13,7 +13,6 @@ export const Cart = () => {
                 </div>
                 <section className={styles.items}>
                     <CartItem />
-                    <CartItem />
                 </section>
 
                 <div className={styles.checkout}>
