@@ -9,8 +9,7 @@ type CardProps = {
 };
 
 export const Card = ({ imgUrl, name, netWorth, id }: CardProps) => {
-    const { selectBillionaire, billionaire, isBillionaireSelected } =
-        useBillionaire();
+    const { selectBillionaire, billionaire, isBillionaireSelected } = useBillionaire();
 
     const isCurrentlySelected = billionaire?.id === id;
 
