@@ -1,4 +1,4 @@
-type ActionType = 'INCREASE' | 'DECREASE' | 'REMOVE';
+type ActionType = 'INCREASE' | 'DECREASE' | 'REMOVE' | 'RESET';
 
 export type CartItemType = {
     id: number;
@@ -82,6 +82,13 @@ export const shoppingCartReducer = (state: StateType, action: ReducerActions) =>
                 ...state,
                 cart: updatedCart,
             };
+        }
+
+        case 'RESET': {
+            return {
+                ...state,
+                cart: []
+            }
         }
 
         default:

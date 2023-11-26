@@ -4,7 +4,9 @@ import styles from './Cart.module.scss';
 import { useCart } from 'src/context/ShoppingContext';
 
 export const Cart = () => {
-    const { itemsInCart, subTotal, isOpen, closeCart } = useCart();
+    const { itemsInCart, subTotal, isOpen, closeCart, clearCart } = useCart();
+
+    const isCartEmpty = itemsInCart.length == 0;
 
     return isOpen ? (
         <>
@@ -15,6 +17,7 @@ export const Cart = () => {
                     <X size={32} onClick={closeCart} className="pointer" />
                 </div>
                 <section className={styles.items}>
+                    {isCartEmpty && <p>Your Cart is Empty</p>}
                     {itemsInCart.map((item) => (
                         <CartItem {...item} key={item.id} />
                     ))}
@@ -27,7 +30,7 @@ export const Cart = () => {
                     </div>
 
                     <button>Buy</button>
-                    <button>Clear Cart</button>
+                    <button onClick={clearCart}>Clear Cart</button>
                 </div>
             </aside>
             <div className={styles.overlay} onClick={closeCart} />

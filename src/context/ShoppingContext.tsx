@@ -15,6 +15,7 @@ type ShoppingContextType = {
     openCart: () => void;
     closeCart: () => void;
     removeFromCart: (item: CartItemType) => void;
+    clearCart: () => void;
     isOpen: boolean;
     subTotal: number;
     itemsInCart: CartItemType[];
@@ -55,10 +56,11 @@ export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
         
         return item?.qty ?? 0;
     };
+
+    const clearCart = () => dispatch({ type: 'RESET' });
     
     const subTotal = state.cart.reduce((sum, item) => sum += (item.price * item.qty), 0);
     const itemsInCart = state.cart.filter(i => i.qty > 0);
-    // const removeCartItem = () => {};
 
     return (
         <ShoppingContext.Provider 
@@ -73,6 +75,7 @@ export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
                 closeCart,
                 removeFromCart,
                 isOpen,
+                clearCart,
             }}
         >
             {children}

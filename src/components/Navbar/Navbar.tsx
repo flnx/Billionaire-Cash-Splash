@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Container } from '../Container/Container';
-import styles from './Navbar.module.scss';
-import logo from 'src/assets/logo/owl.png';
 import { useCart } from 'src/context/ShoppingContext';
+import { ShoppingCart } from '@phosphor-icons/react';
+
+import logo from 'src/assets/logo/owl.png';
+import styles from './Navbar.module.scss';
 
 export const Navbar = () => {
     const { openCart } = useCart();
@@ -23,7 +25,11 @@ export const Navbar = () => {
                     </div>
                     <nav>
                         <Link to="/store">Store</Link>
-                        <div onClick={openCart}>Cart</div>
+                        <ShoppingCart
+                            size={32}
+                            onClick={() => openCart()}
+                            className="pointer"
+                        />
                     </nav>
                 </div>
             </Container>

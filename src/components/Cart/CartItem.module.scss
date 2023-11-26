@@ -29,11 +29,17 @@
         display: flex;
         gap: 0.55rem;
         align-items: center;
+        user-select: none;
 
         .icon {
             border: 1px solid #000;
             border-radius: 50%;
             cursor: pointer;
+        }
+
+        .icon:hover, .icon:focus {
+            background: #000;
+            color: #fff;
         }
     }
 }
@@ -44,4 +50,10 @@
     top: 20px;
     right: 10px;
     margin-left: auto;
+    border-radius: 50%;
+}
+
+.close:hover, .close:focus {
+    background: #000;
+    color: #fff;
 }

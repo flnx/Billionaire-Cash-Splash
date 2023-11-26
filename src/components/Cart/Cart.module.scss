@@ -50,11 +50,16 @@
             background: #fff;
             color: #000;
             border: 1px solid #00000000;
+            cursor: pointer;
         }
 
         button:nth-of-type(2) {
             background: black;
             color: #fff;
+        }
+
+        button:hover, button:focus {
+            opacity: 0.8;
         }
     }
 }

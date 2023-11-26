@@ -23,7 +23,7 @@ export const CartItem = (item: CartItemProps) => {
             </div>
             <div className={styles.info}>
                 <p className={styles.name}>{name}</p>
-                <p className={styles.price}>${(price * qty).toFixed(0)}</p>
+                <p className={styles.price}>${(price * qty).toFixed(2)}</p>
                 <div className={styles.qBar}>
                     <Minus
                         size={16}
