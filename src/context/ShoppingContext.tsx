@@ -56,7 +56,7 @@ export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
         return item?.qty ?? 0;
     };
     
-    const subTotal = state.cart.reduce((sum, item) => sum += item.price, 0);
+    const subTotal = state.cart.reduce((sum, item) => sum += (item.price * item.qty), 0);
     const itemsInCart = state.cart.filter(i => i.qty > 0);
     // const removeCartItem = () => {};
 
