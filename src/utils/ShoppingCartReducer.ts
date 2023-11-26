@@ -1,4 +1,4 @@
-type ActionType = 'INCREASE' | 'DECREASE' | 'QUANTITY' | 'REMOVE';
+type ActionType = 'INCREASE' | 'DECREASE' | 'REMOVE';
 
 export type CartItemType = {
     id: number;
@@ -68,6 +68,20 @@ export const shoppingCartReducer = (state: StateType, action: ReducerActions) =>
             }
 
             return state;
+        }
+
+        case 'REMOVE': {
+            if (!action.payload) {
+                throw new Error('action.payload is missing in INCREASE section');
+            }
+
+            const { id } = action.payload;
+            const updatedCart = state.cart.filter((i) => i.id !== id);
+
+            return {
+                ...state,
+                cart: updatedCart,
+            };
         }
 
         default:

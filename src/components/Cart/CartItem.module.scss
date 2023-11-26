@@ -33,12 +33,14 @@
         .icon {
             border: 1px solid #000;
             border-radius: 50%;
+            cursor: pointer;
         }
     }
 }
 
 .close {
     position: absolute;
+    cursor: pointer;
     top: 20px;
     right: 10px;
     margin-left: auto;

@@ -7,8 +7,8 @@ import { BillionaireContextProvider } from './context/BillionaireContext';
 
 function App() {
     return (
-        <div className="app">
-            <ShoppingContextProvider>
+        <ShoppingContextProvider>
+            <div className="app">
                 <BillionaireContextProvider>
                     <Navbar />
                     <Routes>
@@ -16,8 +16,8 @@ function App() {
                     </Routes>
                     <Footer />
                 </BillionaireContextProvider>
-            </ShoppingContextProvider>
-        </div>
+            </div>
+        </ShoppingContextProvider>
     );
 }
 

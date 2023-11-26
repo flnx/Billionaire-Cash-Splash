@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useState } from 'react';
 import { shoppingCartReducer, StateType, CartItemType } from 'src/utils/ShoppingCartReducer';
 import { useContext } from 'react';
 import { Cart } from 'src/components/Cart/Cart';
@@ -12,14 +12,22 @@ type ShoppingContextType = {
     increaseCartQty: (item: CartItemType) => void;
     decreaseCartQty: (item: CartItemType) => void;
     getItemQty: (id: number) => number;
-    getCartItems: () => CartItemType[];
-    // removeCartItem: () => void;
+    openCart: () => void;
+    closeCart: () => void;
+    removeFromCart: (item: CartItemType) => void;
+    isOpen: boolean;
+    subTotal: number;
+    itemsInCart: CartItemType[];
 };
 
 const ShoppingContext = createContext<ShoppingContextType | undefined>(undefined);
 
 export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
     const [state, dispatch] = useReducer(shoppingCartReducer, { cart: [] });
+    const [isOpen, setIsOpen] = useState(false);
+
+    const openCart = () => setIsOpen(true);
+    const closeCart = () => setIsOpen(false);
 
     const increaseCartQty = (item: CartItemType) => {
         dispatch({
@@ -35,18 +43,21 @@ export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
         });
     };
 
-    const getCartItems = () => {
-        const items = state.cart.filter(i => i.qty > 0);
-
-        return items;
+    const removeFromCart = (item: CartItemType) => {
+        dispatch({
+            type: 'REMOVE',
+            payload: item,   
+        })
     }
 
     const getItemQty = (id: number): number => {
         const item = state.cart.find((i) => i.id === id);
-
+        
         return item?.qty ?? 0;
     };
-
+    
+    const subTotal = state.cart.reduce((sum, item) => sum += item.price, 0);
+    const itemsInCart = state.cart.filter(i => i.qty > 0);
     // const removeCartItem = () => {};
 
     return (
@@ -56,7 +67,12 @@ export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
                 state, 
                 getItemQty, 
                 decreaseCartQty, 
-                getCartItems,
+                itemsInCart,
+                subTotal,
+                openCart,
+                closeCart,
+                removeFromCart,
+                isOpen,
             }}
         >
             {children}

@@ -1,27 +1,49 @@
 import { Plus, Minus, X } from '@phosphor-icons/react';
 
 import styles from './CartItem.module.scss';
+import { useCart } from 'src/context/ShoppingContext';
 
-export const CartItem = () => {
+type CartItemProps = {
+    id: number;
+    name: string;
+    price: number;
+    imageUrls: string[];
+    qty: number;
+};
+
+export const CartItem = (item: CartItemProps) => {
+    const { increaseCartQty, decreaseCartQty, removeFromCart } = useCart();
+
+    const { id, name, price, imageUrls, qty } = item;
+
     return (
         <div className={styles.item}>
             <div className={styles.image}>
-                <img
-                    src="https://www.topgear.com/sites/default/files/2022/07/13.jpg"
-                    alt="productName"
-                />
+                <img src={imageUrls[0]} alt={name + id} />
             </div>
             <div className={styles.info}>
-                <p className={styles.name}>Item Name</p>
-                <p className={styles.price}>$999</p>
+                <p className={styles.name}>{name}</p>
+                <p className={styles.price}>${(price * qty).toFixed(0)}</p>
                 <div className={styles.qBar}>
-                    <Minus size={16} className={styles.icon} />
-                    <span>5</span>
-                    <Plus size={16} className={styles.icon} />
+                    <Minus
+                        size={16}
+                        className={styles.icon}
+                        onClick={() => decreaseCartQty(item)}
+                    />
+                    <span>{qty}</span>
+                    <Plus
+                        size={16}
+                        className={styles.icon}
+                        onClick={() => increaseCartQty(item)}
+                    />
                 </div>
             </div>
 
-            <X size={16} className={styles.close} />
+            <X
+                size={16}
+                className={styles.close}
+                onClick={() => removeFromCart(item)}
+            />
         </div>
     );
 };

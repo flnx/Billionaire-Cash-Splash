@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom';
 import { Container } from '../Container/Container';
 import styles from './Navbar.module.scss';
 import logo from 'src/assets/logo/owl.png';
+import { useCart } from 'src/context/ShoppingContext';
 
 export const Navbar = () => {
-    console.log(logo)
+    const { openCart } = useCart();
+
     return (
         <header className={styles.header}>
             <Container>
@@ -21,7 +23,7 @@ export const Navbar = () => {
                     </div>
                     <nav>
                         <Link to="/store">Store</Link>
-                        <div>Cart</div>
+                        <div onClick={openCart}>Cart</div>
                     </nav>
                 </div>
             </Container>
