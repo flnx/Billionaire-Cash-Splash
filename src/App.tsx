@@ -7,17 +7,17 @@ import { BillionaireContextProvider } from './context/BillionaireContext';
 
 function App() {
     return (
-        <div className="app">
-            <ShoppingContextProvider>
-                <BillionaireContextProvider>
+        <BillionaireContextProvider>
+            <div className="app">
+                <ShoppingContextProvider>
                     <Navbar />
                     <Routes>
                         <Route path="/" element={<Home />} />
                     </Routes>
                     <Footer />
-                </BillionaireContextProvider>
-            </ShoppingContextProvider>
-        </div>
+                </ShoppingContextProvider>
+            </div>
+        </BillionaireContextProvider>
     );
 }
 

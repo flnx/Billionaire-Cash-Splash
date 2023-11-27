@@ -2,9 +2,11 @@ import { ShoppingCartSimple, X } from '@phosphor-icons/react';
 import { CartItem } from './CartItem';
 import styles from './Cart.module.scss';
 import { useCart } from 'src/context/ShoppingContext';
+import { useBillionaire } from 'src/context/BillionaireContext';
 
 export const Cart = () => {
     const { itemsInCart, subTotal, isOpen, closeCart, clearCart } = useCart();
+    const { billionaire, decreaseNetWorth } = useBillionaire();
 
     const isCartEmpty = itemsInCart.length == 0;
 
@@ -13,7 +15,7 @@ export const Cart = () => {
             <aside className={styles.cart}>
                 <div className={styles.header}>
                     <ShoppingCartSimple size={32} />
-                    <span>your cart</span>
+                    <span>BALANCE: ${billionaire?.netWorth || 0}</span>
                     <X size={32} onClick={closeCart} className="pointer" />
                 </div>
                 <section className={styles.items}>
@@ -29,7 +31,7 @@ export const Cart = () => {
                         <span>${subTotal.toFixed(2)}</span>
                     </div>
 
-                    <button>Buy</button>
+                    <button onClick={() => decreaseNetWorth(subTotal, clearCart)}>Buy</button>
                     <button onClick={clearCart}>Clear Cart</button>
                 </div>
             </aside>

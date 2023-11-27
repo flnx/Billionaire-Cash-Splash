@@ -13,6 +13,7 @@ type billionaireType = {
 
 type BillionaireContextType = {
     selectBillionaire: (selectedBillionaire: billionaireType) => void;
+    decreaseNetWorth: (amount: number, clearCartCB: () => void) => void;
     billionaire: billionaireType | null;
     isBillionaireSelected: boolean;
 };
@@ -25,15 +26,35 @@ export const BillionaireContextProvider = ({ children }: BillionareContextProps)
     const isBillionaireSelected = billionaire ? true : false;
 
     const selectBillionaire = (selectedBillionaire: billionaireType) => {
-        if (isBillionaireSelected) return;
+        if (!isBillionaireSelected) {
+            setBillionaire(selectedBillionaire);
+        } 
+    };
 
-        setBillionaire(selectedBillionaire);
+    const decreaseNetWorth = (amount: number, clearCartCB: () => void) => {
+        if (billionaire && amount <= billionaire.netWorth) {
+            setBillionaire((prevBillionaire) => {
+                if (!prevBillionaire) return prevBillionaire;
+
+                const newNetWorth = Math.max(0, prevBillionaire.netWorth - amount).toFixed(2);
+                const updatedBillionaire = { ...prevBillionaire, netWorth: parseFloat(newNetWorth) };
+
+                clearCartCB();
+
+                return updatedBillionaire;
+            });
+        }
     };
 
 
     return (
         <BillionaireContext.Provider
-            value={{ selectBillionaire, billionaire, isBillionaireSelected }}
+            value={{
+                selectBillionaire,
+                billionaire,
+                isBillionaireSelected,
+                decreaseNetWorth,
+            }}
         >
             {children}
         </BillionaireContext.Provider>
