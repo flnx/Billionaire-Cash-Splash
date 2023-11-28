@@ -13,28 +13,29 @@ type billionaireType = {
     name: string;
 };
 
-
 type BillionaireContextType = {
     selectBillionaire: (selectedBillionaire: billionaireType) => void;
     decreaseNetWorth: (amount: number, clearCartCB: () => void) => void;
-    addToInventory: (item: CartItemType) => void;
+    addToInventory: (items: CartItemType[]) => void;
     inventory: CartItemType[];
     billionaire: billionaireType | null;
     isBillionaireSelected: boolean;
 };
 
-const BillionaireContext = createContext<BillionaireContextType | undefined>(undefined);
+const BillionaireContext = createContext<BillionaireContextType | undefined>(
+    undefined
+);
 
 export const BillionaireContextProvider = ({ children }: BillionareContextProps) => {
     const [billionaire, setBillionaire] = useState<null | billionaireType>(null);
     const [inventory, setInventory] = useState<CartItemType[]>([]);
-    
+
     const isBillionaireSelected = billionaire ? true : false;
 
     const selectBillionaire = (selectedBillionaire: billionaireType) => {
         if (!isBillionaireSelected) {
             setBillionaire(selectedBillionaire);
-        } 
+        }
     };
 
     const decreaseNetWorth = (amount: number, clearCartCB: () => void) => {
@@ -44,9 +45,9 @@ export const BillionaireContextProvider = ({ children }: BillionareContextProps)
 
                 const newNetWorth = Math.max(0, prev.netWorth - amount).toFixed(2);
 
-                const updatedBillionaire = { 
-                    ...prev, 
-                    netWorth: parseFloat(newNetWorth) 
+                const updatedBillionaire = {
+                    ...prev,
+                    netWorth: parseFloat(newNetWorth),
                 };
 
                 clearCartCB();
@@ -56,19 +57,26 @@ export const BillionaireContextProvider = ({ children }: BillionareContextProps)
         }
     };
 
-    const addToInventory = (item: CartItemType) => {
+    const addToInventory = (items: CartItemType[]) => {
         setInventory((prev: CartItemType[]) => {
-            const existingItem = prev.some((i) => i.id === item.id);
+            const newItems: CartItemType[] = items.map((newItem) => {
+                const existingItem = prev.find((x) => x.id === newItem.id);
 
-            if (existingItem) {
-                const updatedInventory = prev.map((i) =>
-                    i.id === item.id ? { ...i, qty: (i.qty ?? 0) + item.qty } : i
-                );
+                if (existingItem) {
+                    return {
+                        ...existingItem,
+                        qty: (existingItem.qty ?? 0) + newItem.qty,
+                    };
+                }
 
-                return updatedInventory;
-            }
+                return newItem;
+            });
 
-            return [...prev, item];
+            const filtered: CartItemType[] = prev.filter(
+                (i) => !newItems.some((x) => x.id === i.id)
+            );
+
+            return [...filtered, ...newItems];
         });
     };
 
@@ -80,7 +88,7 @@ export const BillionaireContextProvider = ({ children }: BillionareContextProps)
                 isBillionaireSelected,
                 decreaseNetWorth,
                 addToInventory,
-                inventory
+                inventory,
             }}
         >
             {children}
@@ -92,7 +100,9 @@ export const useBillionaire = (): BillionaireContextType => {
     const context = useContext(BillionaireContext);
 
     if (!context) {
-        throw new Error('useBillionaire must be used within a BillionaireContextProvider');
+        throw new Error(
+            'useBillionaire must be used within a BillionaireContextProvider'
+        );
     }
 
     return context;
