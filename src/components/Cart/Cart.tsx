@@ -1,14 +1,15 @@
 import { ShoppingCartSimple, X } from '@phosphor-icons/react';
 import { CartItem } from './CartItem';
-import styles from './Cart.module.scss';
 import { useCart } from 'src/context/ShoppingContext';
 import { useBillionaire } from 'src/context/BillionaireContext';
+import styles from './Cart.module.scss';
 
 export const Cart = () => {
     const { itemsInCart, subTotal, isOpen, closeCart, clearCart } = useCart();
-    const { billionaire, decreaseNetWorth } = useBillionaire();
+    const { billionaire, addToInventory } = useBillionaire();
 
     const isCartEmpty = itemsInCart.length == 0;
+
 
     return isOpen ? (
         <>
@@ -31,7 +32,7 @@ export const Cart = () => {
                         <span>${subTotal.toFixed(2)}</span>
                     </div>
 
-                    <button onClick={() => decreaseNetWorth(subTotal, clearCart)}>Buy</button>
+                    <button onClick={() => addToInventory(subTotal, clearCart, itemsInCart)}>Buy</button>
                     <button onClick={clearCart}>Clear Cart</button>
                 </div>
             </aside>

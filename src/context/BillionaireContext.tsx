@@ -15,8 +15,7 @@ type billionaireType = {
 
 type BillionaireContextType = {
     selectBillionaire: (selectedBillionaire: billionaireType) => void;
-    decreaseNetWorth: (amount: number, clearCartCB: () => void) => void;
-    addToInventory: (items: CartItemType[]) => void;
+    addToInventory: (amount: number, clearCartCB: () => void, items: CartItemType[]) => void;
     inventory: CartItemType[];
     billionaire: billionaireType | null;
     isBillionaireSelected: boolean;
@@ -38,26 +37,7 @@ export const BillionaireContextProvider = ({ children }: BillionareContextProps)
         }
     };
 
-    const decreaseNetWorth = (amount: number, clearCartCB: () => void) => {
-        if (billionaire && amount <= billionaire.netWorth) {
-            setBillionaire((prev) => {
-                if (!prev) return prev;
-
-                const newNetWorth = Math.max(0, prev.netWorth - amount).toFixed(2);
-
-                const updatedBillionaire = {
-                    ...prev,
-                    netWorth: parseFloat(newNetWorth),
-                };
-
-                clearCartCB();
-
-                return updatedBillionaire;
-            });
-        }
-    };
-
-    const addToInventory = (items: CartItemType[]) => {
+    const addItems = (items: CartItemType[]) => {
         setInventory((prev: CartItemType[]) => {
             const newItems: CartItemType[] = items.map((newItem) => {
                 const existingItem = prev.find((x) => x.id === newItem.id);
@@ -80,13 +60,32 @@ export const BillionaireContextProvider = ({ children }: BillionareContextProps)
         });
     };
 
+    const addToInventory = (amount: number, clearCartCB: () => void, items: CartItemType[]) => {
+        if (billionaire && amount <= billionaire.netWorth && items.length !== 0) {
+            setBillionaire((prev) => {
+                if (!prev) return prev;
+
+                const newNetWorth = Math.max(0, prev.netWorth - amount).toFixed(2);
+
+                const updatedBillionaire = {
+                    ...prev,
+                    netWorth: parseFloat(newNetWorth),
+                };
+
+                addItems(items);
+                clearCartCB();
+
+                return updatedBillionaire;
+            });
+        }
+    };
+
     return (
         <BillionaireContext.Provider
             value={{
                 selectBillionaire,
                 billionaire,
                 isBillionaireSelected,
-                decreaseNetWorth,
                 addToInventory,
                 inventory,
             }}

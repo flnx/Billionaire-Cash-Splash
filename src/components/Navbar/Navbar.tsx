@@ -24,7 +24,7 @@ export const Navbar = () => {
                         </Link>
                     </div>
                     <nav>
-                        <Link to="/store">Store</Link>
+                        <Link to="/inventory">Inventory</Link>
                         <ShoppingCart
                             size={32}
                             onClick={() => openCart()}

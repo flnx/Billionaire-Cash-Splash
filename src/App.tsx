@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar/Navbar';
 import { Home } from './pages/Home';
 import { ShoppingContextProvider } from './context/ShoppingContext';
 import { BillionaireContextProvider } from './context/BillionaireContext';
+import { Inventory } from './pages/Inventory';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                     <Navbar />
                     <Routes>
                         <Route path="/" element={<Home />} />
+                        <Route path="/inventory" element={<Inventory />} />
                     </Routes>
                     <Footer />
                 </ShoppingContextProvider>
