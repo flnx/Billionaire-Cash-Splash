@@ -1,6 +1,8 @@
 // import { PrimaryButton } from '../Buttons/PrimaryButton';
 import { useCart } from 'src/context/ShoppingContext';
 import { QuantityBar } from '../QuantityBar/QuantityBar';
+import { PrimaryButton } from '../Buttons/PrimaryButton';
+
 import styles from './Product.module.scss';
 
 type ProductProps = {
@@ -11,7 +13,7 @@ type ProductProps = {
 };
 
 export const Product = (product: ProductProps) => {
-    const { getItemQty } = useCart();
+    const { getItemQty, increaseCartQty } = useCart();
     const { name, price, imageUrls, id } = product;
 
     const qty = getItemQty(id);
@@ -27,11 +29,13 @@ export const Product = (product: ProductProps) => {
                 <span aria-label="Price">{price}</span>
             </div>
 
-            <div className={styles.footer}>
-                {/* <PrimaryButton>+ Add To Cart</PrimaryButton> */}
-            </div>
-
-            <QuantityBar {...product} qty={qty} />
+            {qty == 0 ? (
+                <PrimaryButton increaseCartQtyHandler={() => increaseCartQty({...product, qty})}>
+                    + Add To Cart
+                </PrimaryButton>
+            ) : (
+                <QuantityBar {...product} qty={qty} />
+            )}
         </div>
     );
 };
