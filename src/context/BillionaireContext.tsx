@@ -29,7 +29,7 @@ export const BillionaireContextProvider = ({ children }: BillionareContextProps)
     const [billionaire, setBillionaire] = useState<null | billionaireType>(null);
     const [inventory, setInventory] = useState<CartItemType[]>([]);
 
-    const isBillionaireSelected = billionaire ? true : false;
+    const isBillionaireSelected: boolean = !!billionaire;
 
     const selectBillionaire = (selectedBillionaire: billionaireType) => {
         if (!isBillionaireSelected) {

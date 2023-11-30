@@ -8,8 +8,8 @@ export const Cart = () => {
     const { itemsInCart, subTotal, isOpen, closeCart, clearCart } = useCart();
     const { billionaire, addToInventory } = useBillionaire();
 
-    const isCartEmpty = itemsInCart.length == 0;
-
+    const isCartEmpty: boolean = itemsInCart.length == 0;
+    const isBalanceEnough: boolean = (billionaire?.netWorth ?? -1) >= subTotal;
 
     return isOpen ? (
         <>
@@ -29,10 +29,16 @@ export const Cart = () => {
                 <div className={styles.checkout}>
                     <div className={styles.total}>
                         <span>Subtotal:</span>
-                        <span>${subTotal.toFixed(2)}</span>
+                        <span className={!isBalanceEnough ? styles.error : ''}>
+                            ${subTotal.toFixed(2)}
+                        </span>
                     </div>
-
-                    <button onClick={() => addToInventory(subTotal, clearCart, itemsInCart)}>Buy</button>
+                    <button 
+                        onClick={() => addToInventory(subTotal, clearCart, itemsInCart)}
+                        disabled={!isBalanceEnough || isCartEmpty}
+                    >
+                        Buy
+                    </button>
                     <button onClick={clearCart}>Clear Cart</button>
                 </div>
             </aside>
