@@ -8,9 +8,13 @@
         border: none;
         border-radius: 3px;
         padding: 0.6rem 1.15rem;
-        background: green;
+        background: rgb(38, 0, 128);
         color: #fff;
         cursor: pointer;
+    }
+
+    button:hover, button:focus {
+        opacity: 0.9;
     }
 }
 

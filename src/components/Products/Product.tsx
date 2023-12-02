@@ -30,7 +30,8 @@ export const Product = (product: ProductProps) => {
             </div>
 
             {qty == 0 ? (
-                <PrimaryButton increaseCartQtyHandler={() => increaseCartQty({...product, qty})}>
+                <PrimaryButton 
+                    increaseCartQtyHandler={() => increaseCartQty({...product, qty})}>
                     + Add To Cart
                 </PrimaryButton>
             ) : (

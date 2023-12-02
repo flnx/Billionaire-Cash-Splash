@@ -1,4 +1,5 @@
 import { Container } from 'src/components/Container/Container';
+import { Product } from 'src/components/Products/Product';
 import { useBillionaire } from 'src/context/BillionaireContext';
 
 export const Inventory = () => {
@@ -8,7 +9,9 @@ export const Inventory = () => {
     return (
         <Container>
             <div>
-                Hell0 there
+                {inventory.map((p) => (
+                    <Product key={p.id} {...p} />
+                ))}
             </div>
         </Container>
     );
