@@ -2,6 +2,7 @@
 import { useCart } from 'src/context/ShoppingContext';
 import { QuantityBar } from '../QuantityBar/QuantityBar';
 import { PrimaryButton } from '../Buttons/PrimaryButton';
+import { PlusCircle } from '@phosphor-icons/react';
 
 import styles from './Product.module.scss';
 
@@ -30,9 +31,15 @@ export const Product = (product: ProductProps) => {
             </div>
 
             {qty == 0 ? (
-                <PrimaryButton 
-                    increaseCartQtyHandler={() => increaseCartQty({...product, qty})}>
-                    + Add To Cart
+                <PrimaryButton
+                    increaseCartQtyHandler={() =>
+                        increaseCartQty({ ...product, qty })
+                    }
+                >
+                    <div className="flex">
+                        <PlusCircle size={28} />
+                        <span>Add To Cart</span>
+                    </div>
                 </PrimaryButton>
             ) : (
                 <QuantityBar {...product} qty={qty} />

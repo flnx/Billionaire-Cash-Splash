@@ -3,7 +3,16 @@
     padding: 0.6rem 0;
     width: 100%;
     border: none;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
     cursor: pointer;
+    background: var(--text-secondary);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: font-size 0.1s ease-in-out;
+}
+
+.btn:hover, .btn:focus {
+    font-size: 1.1rem;
+    background: var(--spotify-green-hover);
+    outline: none;
 }

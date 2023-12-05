@@ -2,25 +2,25 @@
     {
         "id": 1,
         "name": "Elon Musk",
-        "netWorth": 10.99,
+        "netWorth": 244400000000,
         "imgUrl": "/images/elon.webp"
     },
     {
         "id": 2,
         "name": "Jeff Bezos",
-        "netWorth": 1199,
+        "netWorth": 169300000000,
         "imgUrl": "/images/jeff.webp"
     },
     {
         "id": 3,
         "name": "Mark Zuckerberg",
-        "netWorth": 1.05,
+        "netWorth": 115100000000,
         "imgUrl": "/images/mark.webp"
     },
     {
         "id": 4,
         "name": "Bill Gates",
-        "netWorth": 14000,
+        "netWorth": 117600000000,
         "imgUrl": "/images/bill.webp"
     }
 ]

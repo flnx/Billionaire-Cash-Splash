@@ -29,4 +29,9 @@ p {
 
 a {
     color: var(--text-primary);
+    transition: opacity 0.1s ease-in-out;
+}
+
+a:hover, a:focus {
+    opacity: 0.8;
 }
