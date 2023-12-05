@@ -24,7 +24,7 @@ export const Card = ({ imgUrl, name, netWorth, id }: CardProps) => {
 
             <div className={styles.body}>
                 <h3>{name}</h3>
-                <span aria-label="Net Worth">{netWorth}</span>
+                <span aria-label="Net Worth">${netWorth}</span>
             </div>
             {isBillionaireSelected && (
                 <div className={styles.selected}>
