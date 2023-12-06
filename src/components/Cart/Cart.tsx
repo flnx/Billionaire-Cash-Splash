@@ -16,7 +16,7 @@ export const Cart = () => {
             <aside className={styles.cart}>
                 <div className={styles.header}>
                     <ShoppingCartSimple size={32} />
-                    <span>BALANCE: ${billionaire?.netWorth || 0}</span>
+                    <span>BALANCE: ${(billionaire?.netWorth)?.toLocaleString() || 0}</span>
                     <X size={32} onClick={closeCart} className="pointer" />
                 </div>
                 <section className={styles.items}>
@@ -33,8 +33,10 @@ export const Cart = () => {
                             ${subTotal.toFixed(2)}
                         </span>
                     </div>
-                    <button 
-                        onClick={() => addToInventory(subTotal, clearCart, itemsInCart)}
+                    <button
+                        onClick={() =>
+                            addToInventory(subTotal, clearCart, itemsInCart)
+                        }
                         disabled={!isBalanceEnough || isCartEmpty}
                     >
                         Buy

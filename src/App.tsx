@@ -9,7 +9,7 @@ import { Inventory } from './pages/Inventory';
 function App() {
     return (
         <BillionaireContextProvider>
-            <div className="app" data-theme="asd">
+            <div className="app" data-theme="dark">
                 <ShoppingContextProvider>
                     <Navbar />
                     <Routes>
