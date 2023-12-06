@@ -27,7 +27,7 @@ export const Product = (product: ProductProps) => {
 
             <div className={styles.body}>
                 <h3>{name}</h3>
-                <span aria-label="Price">{price}</span>
+                <span aria-label="Price">${price.toLocaleString()}</span>
             </div>
 
             {qty == 0 ? (

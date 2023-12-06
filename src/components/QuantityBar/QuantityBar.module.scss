@@ -7,14 +7,15 @@
         display: inline-block;
         border: none;
         border-radius: 3px;
-        padding: 0.6rem 1.15rem;
-        background: rgb(38, 0, 128);
-        color: #fff;
+        padding: 0.4rem 1rem;
+        background: var(--spotify-green);
+        color: var(--text-primary);
         cursor: pointer;
     }
 
     button:hover, button:focus {
         opacity: 0.9;
+        background: var(--spotify-green-hover);
     }
 }
 
@@ -23,11 +24,15 @@
     flex-direction: column;
     align-items: center;
     width: 7.5rem;
+    font-weight: 400;
 
     input {
         width: 3.5rem;
         border: none;
         line-height: 0;
         text-align: center;
+        background: transparent;
+        color: var(--text-primary);
+        font-weight: 700;
     }
 }
