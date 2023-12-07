@@ -10,7 +10,9 @@ import { useTheme } from 'src/context/ThemeContext';
 
 export const Navbar = () => {
     const { openCart } = useCart();
-    const { themeHandler } = useTheme(); 
+    const { themeHandler, theme } = useTheme();
+
+    const isDark: boolean = theme === 'dark';
 
     return (
         <header className={styles.header}>
@@ -27,7 +29,7 @@ export const Navbar = () => {
                         </Link>
                     </div>
                     <nav>
-                        <Switch checked={true} onChange={() => false} />
+                        <Switch checked={isDark} onChange={themeHandler} />
                         <Link to="/inventory">Inventory</Link>
                         <ShoppingCart
                             size={32}
