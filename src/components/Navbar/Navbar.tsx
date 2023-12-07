@@ -2,12 +2,15 @@ import { Link } from 'react-router-dom';
 import { Container } from '../Container/Container';
 import { useCart } from 'src/context/ShoppingContext';
 import { ShoppingCart } from '@phosphor-icons/react';
+import Switch from 'react-switch';
 
 import logo from 'src/assets/logo/owl.png';
 import styles from './Navbar.module.scss';
+import { useTheme } from 'src/context/ThemeContext';
 
 export const Navbar = () => {
     const { openCart } = useCart();
+    const { themeHandler } = useTheme(); 
 
     return (
         <header className={styles.header}>
@@ -24,6 +27,7 @@ export const Navbar = () => {
                         </Link>
                     </div>
                     <nav>
+                        <Switch checked={true} onChange={() => false} />
                         <Link to="/inventory">Inventory</Link>
                         <ShoppingCart
                             size={32}

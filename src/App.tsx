@@ -5,11 +5,14 @@ import { Home } from './pages/Home';
 import { ShoppingContextProvider } from './context/ShoppingContext';
 import { BillionaireContextProvider } from './context/BillionaireContext';
 import { Inventory } from './pages/Inventory';
+import { useTheme } from './context/ThemeContext';
 
 function App() {
+    const { theme } = useTheme();
+
     return (
         <BillionaireContextProvider>
-            <div className="app" data-theme="dark">
+            <div className="app" data-theme={theme}>
                 <ShoppingContextProvider>
                     <Navbar />
                     <Routes>
