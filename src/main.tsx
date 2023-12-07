@@ -9,6 +9,7 @@ import './styles/reset.scss';
 import './styles/typography.scss';
 import './styles/utils.scss';
 import './styles/theme.scss';
+import './styles/breakpoimts.scss';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
