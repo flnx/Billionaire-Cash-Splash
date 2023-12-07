@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Container } from '../Container/Container';
 import { useCart } from 'src/context/ShoppingContext';
-import { ShoppingCart } from '@phosphor-icons/react';
+import { ShoppingCart, Sun, Moon } from '@phosphor-icons/react';
 import Switch from 'react-switch';
 
 import logo from 'src/assets/logo/owl.png';
@@ -29,7 +29,20 @@ export const Navbar = () => {
                         </Link>
                     </div>
                     <nav>
-                        <Switch checked={isDark} onChange={themeHandler} />
+                        <Switch
+                            checked={isDark}
+                            onChange={themeHandler}
+                            className={styles.switch}
+                            onColor="#2E4482"
+                            checkedIcon={<Moon size={24} className={styles.moon} />}
+                            uncheckedIcon={
+                                <Sun
+                                    size={23}
+                                    className={styles.sun}
+                                    color="#fff"
+                                />
+                            }
+                        />
                         <Link to="/inventory">Inventory</Link>
                         <ShoppingCart
                             size={32}
