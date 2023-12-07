@@ -34,12 +34,20 @@ export const Navbar = () => {
                             onChange={themeHandler}
                             className={styles.switch}
                             onColor="#2E4482"
-                            checkedIcon={<Moon size={24} className={styles.moon} />}
+                            checkedIcon={
+                                <Moon
+                                    size={25}
+                                    className={styles.moon}
+                                    color="#f0c420"
+                                    weight='fill'
+                                />
+                            }
                             uncheckedIcon={
                                 <Sun
                                     size={23}
                                     className={styles.sun}
-                                    color="#fff"
+                                    color="#fefcd7"
+                                    weight="fill"
                                 />
                             }
                         />
