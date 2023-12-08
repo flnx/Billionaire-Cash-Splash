@@ -1,3 +1,5 @@
+@import '../../styles/breakpoimts.scss';
+
 .card {
     position: relative;
     flex: 1;
@@ -23,8 +25,12 @@
         padding: 0.75rem;
         text-align: center;
 
+        h3 {
+            font-size: 1.0625em;
+        }
+
         span {
-            font-size: 1.25rem;
+            // font-size: 0.25rem;
             color: var(--spotify-green);
             font-weight: 600;
         }
@@ -44,9 +50,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
     font-weight: 900;
     color: springgreen;
+    font-size: 2rem;
+
+    @include breakpoint-up(large) {
+        font-size: 2.55rem;
+    }
 }
 
 .card:hover, .card:focus {
