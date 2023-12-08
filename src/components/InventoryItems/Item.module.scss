@@ -4,6 +4,7 @@
     border-radius: 5px;
     color: var(--text-primary);
     box-shadow: var(--box-shadow);
+    background: var(--card-product-color);
     display: flex;
     gap: 0.55rem;
 
@@ -20,7 +21,8 @@
     }
 
     .body {
-        padding: 0.35rem;
+        width: calc(65% - 0.55rem);
+        padding: 0.55rem;
         display: flex;
         flex-direction: column;
 
@@ -30,6 +32,29 @@
             text-overflow: ellipsis;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            font-weight: 600;
+        }
+
+        .qty {
+            span:nth-child(1) {
+                font-size: 0.9rem;
+            }
+            
+            span:nth-child(2) {
+                font-size: .95rem;
+            }
+        }
+
+        .total p {
+            color: var(--spotify-green);
+            font-size: 0.9rem;
         }
     }
 }
