@@ -1,6 +1,7 @@
 .item:not(:last-of-type) {
     border-bottom: 1px solid rgba(128, 128, 128, 0.37);
-    
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .item {
@@ -14,7 +15,6 @@
         height: 75px;
         object-fit: cover;
     }
-
 
     .info > * {
         margin-bottom: 0.15rem;
@@ -37,7 +37,8 @@
             cursor: pointer;
         }
 
-        .icon:hover, .icon:focus {
+        .icon:hover,
+        .icon:focus {
             background: #000;
             color: #fff;
         }
@@ -53,7 +54,8 @@
     border-radius: 50%;
 }
 
-.close:hover, .close:focus {
+.close:hover,
+.close:focus {
     background: #000;
     color: #fff;
 }

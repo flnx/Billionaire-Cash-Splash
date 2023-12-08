@@ -1,5 +1,35 @@
 .footer {
-    background: burlywood;
+    background: var(--background-footer);
     margin-top: auto;
-    height: 50px;
+    color: #fff;
+}
+
+.section {
+    padding: 3rem 0;
+    margin: 0;
+    display: flex;
+
+    span,
+    p {
+        font-size: 0.9rem;
+        color: #fff;
+    }
+
+    .intro {
+        text-align: center;
+        font-size: 0.8rem;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 0.25rem;
+        width: 5rem;
+        margin: 0 auto;
+        border-radius: 3%;
+        font-weight: 900;
+        margin-bottom: .35rem;
+    }
+
+    .githubLink {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
 }
