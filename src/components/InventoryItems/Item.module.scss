@@ -1,3 +1,5 @@
+@import '../../styles/breakpoimts.scss';
+
 .card {
     cursor: pointer;
     opacity: 0.9;
@@ -7,6 +9,7 @@
     background: var(--card-product-color);
     display: flex;
     gap: 0.55rem;
+
 
     .header {
         width: 35%;
@@ -32,6 +35,11 @@
             text-overflow: ellipsis;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
+            margin-bottom: 0.25rem;
+
+            @include breakpoint-up(medium) {
+                font-size: 1.25rem;
+            }
         }
 
         .flex {

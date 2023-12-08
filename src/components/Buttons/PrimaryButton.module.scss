@@ -9,10 +9,11 @@
     font-weight: 600;
     text-transform: uppercase;
     transition: font-size 0.1s ease-in-out;
+    font-size: 0.875rem;
 }
 
 .btn:hover, .btn:focus {
-    font-size: 1.1rem;
+    font-size: 0.975rem;
     background: var(--spotify-green-hover);
     outline: none;
 }
