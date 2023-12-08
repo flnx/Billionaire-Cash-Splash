@@ -2,12 +2,26 @@
 
 .items {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 
     gap: 2rem;
 
-    @include breakpoint-up('medium') {
-        grid-template-columns: 1fr;
+    @include breakpoint-up('large') {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.empty {
+    .title {
+        margin-bottom: 1rem;
+    }
+
+    .redirect {
+        font-size: 1.25rem;
+
+        a {
+            color: var(--link-color);
+            font-weight: 900;
+        }
     }
 }
