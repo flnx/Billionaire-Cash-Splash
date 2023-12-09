@@ -1,11 +1,11 @@
 .item:not(:last-of-type) {
     border-bottom: 1px solid rgba(128, 128, 128, 0.37);
     padding-bottom: 1rem;
-    margin-bottom: 1rem;
 }
 
 .item {
     position: relative;
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     gap: 1rem;
