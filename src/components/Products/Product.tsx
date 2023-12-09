@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useCart } from 'src/context/ShoppingContext';
 import { QuantityBar } from '../QuantityBar/QuantityBar';
 import { PrimaryButton } from '../Buttons/PrimaryButton';
@@ -16,12 +15,11 @@ type ProductProps = {
 };
 
 export const Product = (product: ProductProps) => {
-    const { getItemQty, increaseCartQty, addPopUpItem, itemsToPopUp } =
-        useCart();
+    const { getItemQty, increaseCartQty, addPopUpItem, itemsToPopUp } = useCart();
     const { name, price, imageUrls, id } = product;
 
     const qty = getItemQty(id);
-    const isTherePopUps: boolean = !!itemsToPopUp;
+    const isTherePopUps: boolean = itemsToPopUp.length !== 0;
 
     const addProduct = () => {
         addPopUpItem(name);
