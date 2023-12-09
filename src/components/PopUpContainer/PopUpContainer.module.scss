@@ -1,12 +1,18 @@
+@import '../../styles/breakpoimts.scss';
+
 .container {
+    width: 97.5%;
     position: fixed;
-    top: 10%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 26rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include breakpoint-up(medium) {
+        width: 26rem;
+    }
 
     > * {
         margin-bottom: 0.55rem;

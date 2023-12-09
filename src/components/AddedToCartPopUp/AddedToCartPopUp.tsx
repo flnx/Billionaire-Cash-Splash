@@ -6,6 +6,8 @@ type AddedToCartPopUpProps = {
 
 export const AddedToCartPopUp = ({ item }: AddedToCartPopUpProps) => {
     return (
-        <p className={styles.popup}>{item} has been added to your cart</p>
+        <p className={styles.popup}>
+            <span>{item}</span> has been added to your cart
+        </p>
     );
 };
