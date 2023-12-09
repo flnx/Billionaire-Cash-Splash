@@ -3,9 +3,10 @@ import { useCart } from 'src/context/ShoppingContext';
 import { QuantityBar } from '../QuantityBar/QuantityBar';
 import { PrimaryButton } from '../Buttons/PrimaryButton';
 import { PlusCircle } from '@phosphor-icons/react';
+import { AddedToCartPopUp } from '../AddedToCartPopUp/AddedToCartPopUp';
 
 import styles from './Product.module.scss';
-import { AddedToCartPopUp } from '../AddedToCartPopUp/AddedToCartPopUp';
+import { PopUpContainer } from '../PopUpContainer/PopUpContainer';
 
 type ProductProps = {
     id: number;
@@ -15,24 +16,27 @@ type ProductProps = {
 };
 
 export const Product = (product: ProductProps) => {
-    const [isNewlyAdded, setIsNewlyAdded] = useState<boolean>(false);
-    const { getItemQty, increaseCartQty } = useCart();
+    const { getItemQty, increaseCartQty, addPopUpItem, itemsToPopUp } =
+        useCart();
     const { name, price, imageUrls, id } = product;
 
     const qty = getItemQty(id);
+    const isTherePopUps: boolean = !!itemsToPopUp;
 
     const addProduct = () => {
-        setIsNewlyAdded(true);
+        addPopUpItem(name);
         increaseCartQty({ ...product, qty });
-
-        setTimeout(() => {
-            setIsNewlyAdded(false);
-        }, 1500);
     };
 
     return (
         <>
-            {isNewlyAdded && <AddedToCartPopUp item={ name }/>}
+            {isTherePopUps && (
+                <PopUpContainer>
+                    {itemsToPopUp.map((i) => (
+                        <AddedToCartPopUp item={i} key={i}/>
+                    ))}
+                </PopUpContainer>
+            )}
             <div className={styles.card}>
                 <div className={styles.header}>
                     <img src={imageUrls[0]} alt={name} />
