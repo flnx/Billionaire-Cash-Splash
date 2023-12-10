@@ -7,10 +7,12 @@ import Switch from 'react-switch';
 import logo from 'src/assets/logo/owl.png';
 import styles from './Navbar.module.scss';
 import { useTheme } from 'src/context/ThemeContext';
+import { useShowCartIcon } from 'src/hooks/useShowCartIcon';
 
 export const Navbar = () => {
     const { openCart } = useCart();
     const { themeHandler, theme } = useTheme();
+    const { showCartIcon } = useShowCartIcon(200);
 
     const isDark: boolean = theme === 'dark';
 
@@ -39,7 +41,7 @@ export const Navbar = () => {
                                     size={25}
                                     className={styles.moon}
                                     color="#f0c420"
-                                    weight='fill'
+                                    weight="fill"
                                 />
                             }
                             uncheckedIcon={
