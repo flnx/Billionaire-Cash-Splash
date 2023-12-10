@@ -11,6 +11,37 @@
     opacity: 0.6;
 }
 
+.active {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    background: var(--spotify-green);
+    color: #fff;
+    padding: 0.45rem;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    z-index: 1;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+    animation: fadeInUp 0.1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.active:hover,
+.active:focus {
+    background-color: var(--spotify-green-hover);
+}
+
 .flex {
     display: flex;
     justify-content: center;

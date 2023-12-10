@@ -1,18 +1,20 @@
+import logo from 'src/assets/logo/owl.png';
+
+// Components
+import Switch from 'react-switch';
 import { Link } from 'react-router-dom';
 import { Container } from '../Container/Container';
-import { useCart } from 'src/context/ShoppingContext';
 import { ShoppingCart, Sun, Moon } from '@phosphor-icons/react';
-import Switch from 'react-switch';
 
-import logo from 'src/assets/logo/owl.png';
-import styles from './Navbar.module.scss';
+// Hooks
+import { useCart } from 'src/context/ShoppingContext';
 import { useTheme } from 'src/context/ThemeContext';
-import { useShowCartIcon } from 'src/hooks/useShowCartIcon';
+
+import styles from './Navbar.module.scss';
 
 export const Navbar = () => {
     const { openCart } = useCart();
     const { themeHandler, theme } = useTheme();
-    const { showCartIcon } = useShowCartIcon(200);
 
     const isDark: boolean = theme === 'dark';
 
