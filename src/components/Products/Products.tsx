@@ -2,25 +2,24 @@ import productsData from 'src/data/products.json';
 import categories from 'src/data/categories.json';
 
 import { Product } from './Product';
+import { useMemo, useState } from 'react';
 
 import styles from './Products.module.scss';
-import { useState } from 'react';
 
 export const Products = () => {
-    const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+    const [tags, setTags] = useState<string[]>([]);
 
     const categoryHandler = (selectedCategory: string) => {
-        setSelectedCategories((prev) => {
-            if (prev.includes(selectedCategory)) {
-                return prev.filter((c) => c !== selectedCategory);
-            }
-
-            return [...prev, selectedCategory];
-        });
+        setTags((prev) =>
+            prev.includes(selectedCategory)
+                ? prev.filter((t) => t !== selectedCategory)
+                : [...prev, selectedCategory]
+        );
     };
 
-    const filtered = productsData.filter((p) =>
-        selectedCategories.includes(p.category)
+    const filtered = useMemo(
+        () => productsData.filter((p) => tags.includes(p.category)),
+        [productsData, tags]
     );
 
     const updated = filtered.length === 0 ? productsData : filtered;
