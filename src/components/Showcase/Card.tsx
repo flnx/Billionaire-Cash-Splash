@@ -22,7 +22,12 @@ export const Card = ({ imgUrl, name, netWorth, id }: CardProps) => {
     const isCurrentlySelected = billionaire?.id === id;
 
     const selectBillionaireHandler = () => {
+        
         if (isBillionaireSelected && billionaire?.name !== name) {
+            const userConfirmed = window.confirm("Your shopping cart and inventory items will be reset. Are you sure you want to proceed?");
+            if (!userConfirmed) return;
+            console.log('hi');
+
             resetInventory();
             clearCart();
         }

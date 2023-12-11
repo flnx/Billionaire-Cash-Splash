@@ -13,11 +13,12 @@
 
 .tags {
     display: flex;
-    gap: 1.25rem;
+    flex-wrap: wrap;
+    gap: 1rem;
     margin-bottom: 1.35rem;
 
     .tag {
-        font-size: 0.95rem;
+        font-size: 0.9125rem;
         background: #b93750;
         color: #fff;
         padding: 0.1rem 1rem;
