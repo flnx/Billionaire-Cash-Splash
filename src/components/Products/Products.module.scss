@@ -18,23 +18,20 @@
 
     .tag {
         font-size: 0.95rem;
-        background: #b93750;;
+        background: #b93750;
         color: #fff;
         padding: 0.1rem 1rem;
         border-radius: 10px;
         cursor: pointer;
-        transition: background 0.1s ease-in-out;
+        transition: all 0.1s ease-in-out;
 
         &:hover, &:focus {
             background-color: #8d293d;
+            transform: scale(1.05);
         }
     }
 }
 
 .tagged {
     background: #ea9b9b !important;
-
-    &:hover, &:focus {
-        background: #cc4848 !important;
-    }
 }

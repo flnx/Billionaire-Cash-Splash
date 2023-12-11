@@ -30,8 +30,9 @@ export const Products = () => {
             <div className={styles.tags}>
                 {categories.map((c: string) => (
                     <p
-                        className={styles.tag}
+                        className={`${styles.tag} ${tags.includes(c) ? styles.tagged : ''}`}
                         onClick={() => categoryHandler(c)}
+                        key={c}
                     >
                         {c}
                     </p>
