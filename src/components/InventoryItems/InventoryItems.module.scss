@@ -3,10 +3,11 @@
 .items {
     display: grid;
     grid-template-columns: 1fr;
+    gap: 1rem;
 
-    gap: 2rem;
+    margin-bottom: 3rem;
 
-    @include breakpoint-up('large') {
+    @media (min-width: 47em) {
         grid-template-columns: 1fr 1fr;
     }
 }

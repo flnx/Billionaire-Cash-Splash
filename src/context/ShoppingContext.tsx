@@ -37,7 +37,7 @@ export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
 
         setTimeout(() => {
             setItemsToPopUp((prev) => prev.slice(1));
-        }, 2500);
+        }, 1500);
     };
     const openCart = () => setIsOpen(true);
     const closeCart = () => setIsOpen(false);
