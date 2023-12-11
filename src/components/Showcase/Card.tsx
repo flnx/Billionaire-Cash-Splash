@@ -22,7 +22,7 @@ export const Card = ({ imgUrl, name, netWorth, id }: CardProps) => {
     const isCurrentlySelected = billionaire?.id === id;
 
     const selectBillionaireHandler = () => {
-        if (isBillionaireSelected) {
+        if (isBillionaireSelected && billionaire?.name !== name) {
             resetInventory();
             clearCart();
         }

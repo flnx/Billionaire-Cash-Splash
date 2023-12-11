@@ -33,7 +33,9 @@ export const BillionaireContextProvider = ({ children }: BillionareContextProps)
     const isBillionaireSelected: boolean = !!billionaire;
 
     const selectBillionaire = (selectedBillionaire: billionaireType) => {
-        setBillionaire(selectedBillionaire);
+        if (selectedBillionaire.name !== billionaire?.name) {
+            setBillionaire(selectedBillionaire);
+        }
     };
 
     const resetInventory = () => {
