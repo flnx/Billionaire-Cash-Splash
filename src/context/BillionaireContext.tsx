@@ -16,6 +16,7 @@ type billionaireType = {
 type BillionaireContextType = {
     selectBillionaire: (selectedBillionaire: billionaireType) => void;
     addToInventory: (amount: number, clearCartCB: () => void, items: CartItemType[]) => void;
+    resetInventory: () => void;
     inventory: CartItemType[];
     billionaire: billionaireType | null;
     isBillionaireSelected: boolean;
@@ -32,10 +33,12 @@ export const BillionaireContextProvider = ({ children }: BillionareContextProps)
     const isBillionaireSelected: boolean = !!billionaire;
 
     const selectBillionaire = (selectedBillionaire: billionaireType) => {
-        if (!isBillionaireSelected) {
-            setBillionaire(selectedBillionaire);
-        }
+        setBillionaire(selectedBillionaire);
     };
+
+    const resetInventory = () => {
+        setInventory([]);
+    }
 
     const addItems = (items: CartItemType[]) => {
         setInventory((prev: CartItemType[]) => {
@@ -88,6 +91,7 @@ export const BillionaireContextProvider = ({ children }: BillionareContextProps)
                 isBillionaireSelected,
                 addToInventory,
                 inventory,
+                resetInventory
             }}
         >
             {children}
