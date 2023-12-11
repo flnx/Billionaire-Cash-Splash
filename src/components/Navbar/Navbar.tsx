@@ -24,12 +24,7 @@ export const Navbar = () => {
                 <div className={styles.navContainer}>
                     <div className="logo">
                         <Link to="/">
-                            <img
-                                src={logo}
-                                alt="owl logo"
-                                height="60"
-                                width="60"
-                            />
+                            <img src={logo} alt="owl logo" height="60" width="60" />
                         </Link>
                     </div>
                     <nav>
@@ -55,6 +50,7 @@ export const Navbar = () => {
                                 />
                             }
                         />
+                        <Link to="/">Shop</Link>
                         <Link to="/inventory">Inventory</Link>
                         <ShoppingCart
                             size={32}
