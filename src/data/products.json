@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Cat Battle Armor",
         "price": 799,
-        "imageUrls": ["/images/products/Cat Battle Armor/1.webp"],
+        "imageUrls": ["/images/products/Cat Battle Armor/1.png"],
         "category": "Accessories"
     },
     {
@@ -67,8 +67,8 @@
     {
         "id": 10,
         "name": "Pizza",
-        "price": 6.5,
-        "imageUrls": ["/images/products/Pizza/1.jpg"],
+        "price": 8.5,
+        "imageUrls": ["/images/products/Pizza/1.png"],
         "category": "Food and Beverages"
     },
     {
@@ -142,8 +142,7 @@
         "price": 70000000,
         "imageUrls": ["/images/products/tank/1.png"],
         "category": "Outdoor and Adventure"
-    }
-    ,
+    },
     {
         "id": 21,
         "name": "Twitter",
@@ -162,7 +161,134 @@
         "id": 23,
         "name": "Make a Movie",
         "price": 145000000,
-        "imageUrls": ["/images/products/movie/1.webp"],
+        "imageUrls": ["/images/products/movie/1.png"],
+        "category": "Business"
+    },
+    {
+        "id": 24,
+        "name": "Weird Dog",
+        "price": 500,
+        "imageUrls": ["/images/products/dog/1.png"],
         "category": "Outdoor and Adventure"
+    },
+    {
+        "id": 25,
+        "name": "Spacecraft",
+        "price": 450000,
+        "imageUrls": ["/images/products/spacecraft/1.png"],
+        "category": "Outdoor and Adventure"
+    },
+    {
+        "id": 26,
+        "name": "Pasta Bolognese",
+        "price": 5.99,
+        "imageUrls": ["/images/products/pasta/1.png"],
+        "category": "Food and Beverages"
+    },
+    {
+        "id": 27,
+        "name": "Ostrich",
+        "price": 5000,
+        "imageUrls": ["/images/products/ostrich/1.png"],
+        "category": "Outdoor and Adventure"
+    },
+    {
+        "id": 28,
+        "name": "Yacht",
+        "price": 1500000,
+        "imageUrls": ["/images/products/yacht/1.png"],
+        "category": "Outdoor and Adventure"
+    },
+    {
+        "id": 29,
+        "name": "Invisible Chair",
+        "price": 42000,
+        "imageUrls": ["/images/products/chair/1.png"],
+        "category": "Home and Furniture"
+    },
+    {
+        "id": 30,
+        "name": "Horse",
+        "price": 10000,
+        "imageUrls": ["/images/products/horse/1.png"],
+        "category": "Outdoor and Adventure"
+    },
+    {
+        "id": 31,
+        "name": "Police Car",
+        "price": 55000,
+        "imageUrls": ["/images/products/pcar/1.png"],
+        "category": "Outdoor and Adventure"
+    },
+    {
+        "id": 32,
+        "name": "Train",
+        "price": 55000,
+        "imageUrls": ["/images/products/train/1.png"],
+        "category": "Business"
+    },
+    {
+        "id": 33,
+        "name": "Rolex",
+        "price": 100000,
+        "imageUrls": ["/images/products/rolex/1.png"],
+        "category": "Gadgets and Electronics"
+    },
+    {
+        "id": 34,
+        "name": "PS5",
+        "price": 6500,
+        "imageUrls": ["/images/products/ps/1.png"],
+        "category": "Gadgets and Electronics"
+    },
+    {
+        "id": 35,
+        "name": "Headphones",
+        "price": 199,
+        "imageUrls": ["/images/products/headphones/1.png"],
+        "category": "Gadgets and Electronics"
+    },
+    {
+        "id": 36,
+        "name": "Sand",
+        "price": 199,
+        "imageUrls": ["/images/products/sand/1.png"],
+        "category": "Business"
+    },
+    {
+        "id": 38,
+        "name": "Pirate Ship",
+        "price": 6250000,
+        "imageUrls": ["/images/products/pirateship/1.png"],
+        "category": "Outdoor and Adventure"
+    },
+    {
+        "id": 39,
+        "name": "Steak",
+        "price": 12,
+        "imageUrls": ["/images/products/steak/1.png"],
+        "category": "Food and Beverages"
+    }
+    ,
+    {
+        "id": 40,
+        "name": "Espresso Machine",
+        "price": 1500,
+        "imageUrls": ["/images/products/coffee/1.png"],
+        "category": "Food and Beverages"
+    },
+    {
+        "id": 41,
+        "name": "UFO",
+        "price": 120000000000,
+        "imageUrls": ["/images/products/ufo/1.png"],
+        "category": "Food and Beverages"
+    },
+    {
+        "id": 42,
+        "name": "Ice Cream",
+        "price": 1.99,
+        "imageUrls": ["/images/products/icecream/1.png"],
+        "category": "Food and Beverages"
     }
 ]
