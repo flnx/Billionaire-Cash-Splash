@@ -1,9 +1,5 @@
 import { createContext, useReducer, useState } from 'react';
-import {
-    shoppingCartReducer,
-    StateType,
-    CartItemType,
-} from 'src/utils/ShoppingCartReducer';
+import { shoppingCartReducer, StateType, CartItemType } from 'src/utils/ShoppingCartReducer';
 import { useContext } from 'react';
 import { Cart } from 'src/components/Cart/Cart';
 

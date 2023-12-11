@@ -1,17 +1,21 @@
-import { useCart } from 'src/context/ShoppingContext';
+// Components
 import { QuantityBar } from '../QuantityBar/QuantityBar';
 import { PrimaryButton } from '../Buttons/PrimaryButton';
 import { PlusCircle } from '@phosphor-icons/react';
 import { AddedToCartPopUp } from '../AddedToCartPopUp/AddedToCartPopUp';
+import { PopUpContainer } from '../PopUpContainer/PopUpContainer';
+
+// Hooks
+import { useCart } from 'src/context/ShoppingContext';
 
 import styles from './Product.module.scss';
-import { PopUpContainer } from '../PopUpContainer/PopUpContainer';
 
 type ProductProps = {
     id: number;
     name: string;
     price: number;
     imageUrls: string[];
+    category: string;
 };
 
 export const Product = (product: ProductProps) => {

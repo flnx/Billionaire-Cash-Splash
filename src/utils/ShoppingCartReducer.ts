@@ -6,6 +6,7 @@ export type CartItemType = {
     price: number;
     imageUrls: string[];
     qty: number;
+    category: string;
 };
 
 export type ReducerActions = {
