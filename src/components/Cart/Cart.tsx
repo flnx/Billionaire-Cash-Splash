@@ -36,7 +36,7 @@ export const Cart = () => {
                     <div className={styles.total}>
                         <span>Subtotal:</span>
                         <span className={!isBalanceEnough ? styles.error : ''}>
-                            ${subTotal.toFixed(2)}
+                            ${subTotal.toLocaleString()}
                         </span>
                     </div>
                     <button

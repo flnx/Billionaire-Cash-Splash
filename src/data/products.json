@@ -232,7 +232,7 @@
         "name": "Rolex",
         "price": 100000,
         "imageUrls": ["/images/products/rolex/1.png"],
-        "category": "Gadgets and Electronics"
+        "category": "Accessories"
     },
     {
         "id": 34,
@@ -281,7 +281,7 @@
         "name": "UFO",
         "price": 120000000000,
         "imageUrls": ["/images/products/ufo/1.png"],
-        "category": "Food and Beverages"
+        "category": "Outdoor and Adventure"
     },
     {
         "id": 42,
@@ -372,7 +372,7 @@
         "name": "Chicken Burger",
         "price": 3,
         "imageUrls": ["/images/products/burger/1.png"],
-        "category": "Outdoor and Adventure"
+        "category": "Food and Beverages"
     },
     {
         "id": 55,

@@ -9,6 +9,7 @@ type CartItemProps = {
     price: number;
     imageUrls: string[];
     qty: number;
+    category: string;
 };
 
 export const CartItem = (item: CartItemProps) => {
@@ -23,7 +24,7 @@ export const CartItem = (item: CartItemProps) => {
             </div>
             <div className={styles.info}>
                 <p className={styles.name}>{name}</p>
-                <p className={styles.price}>${(price * qty).toFixed(2)}</p>
+                <p className={styles.price}>${(price * qty).toLocaleString()}</p>
                 <div className={styles.qBar}>
                     <Minus
                         size={16}
