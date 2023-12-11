@@ -59,7 +59,7 @@
     },
     {
         "id": 9,
-        "name": "NC Pillow",
+        "name": "Nicolas Cage Pillow",
         "price": 19.99,
         "imageUrls": ["/images/products/NC Pillow/1.jpg"],
         "category": "Home and Furniture"
@@ -268,8 +268,7 @@
         "price": 12,
         "imageUrls": ["/images/products/steak/1.png"],
         "category": "Food and Beverages"
-    }
-    ,
+    },
     {
         "id": 40,
         "name": "Espresso Machine",
@@ -290,5 +289,96 @@
         "price": 1.99,
         "imageUrls": ["/images/products/icecream/1.png"],
         "category": "Food and Beverages"
+    },
+    {
+        "id": 43,
+        "name": "Chewbacca",
+        "price": 2250000,
+        "imageUrls": ["/images/products/chewbacca/1.png"],
+        "category": "Outdoor and Adventure"
+    },
+    {
+        "id": 44,
+        "name": "Mansion",
+        "price": 65000000,
+        "imageUrls": ["/images/products/mansion/1.png"],
+        "category": "Real Estate"
+    },
+    {
+        "id": 45,
+        "name": "Charity Donation",
+        "price": 99000000,
+        "imageUrls": ["/images/products/charity/1.png"],
+        "category": "Business"
+    },
+    {
+        "id": 46,
+        "name": "Nuke Earth",
+        "price": 69000000000,
+        "imageUrls": ["/images/products/nuke/1.png"],
+        "category": "Business"
+    },
+    {
+        "id": 47,
+        "name": "Priest",
+        "price": 10000,
+        "imageUrls": ["/images/products/priest/1.png"],
+        "category": "Self Care"
+    },
+    {
+        "id": 48,
+        "name": "Security Guard",
+        "price": 19500,
+        "imageUrls": ["/images/products/guard/1.png"],
+        "category": "Self Care"
+    },
+    {
+        "id": 49,
+        "name": "Mona Lisa",
+        "price": 999000000,
+        "imageUrls": ["/images/products/monalisa/1.png"],
+        "category": "Home and Furniture"
+    },
+    {
+        "id": 50,
+        "name": "Unknown Herb",
+        "price": 420,
+        "imageUrls": ["/images/products/unknownherb/1.png"],
+        "category": "Self Care"
+    },
+    {
+        "id": 51,
+        "name": "Nuclear Plant",
+        "price": 850000000,
+        "imageUrls": ["/images/products/nuclear/1.png"],
+        "category": "Business"
+    },
+    {
+        "id": 52,
+        "name": "1 million",
+        "price": 2000000,
+        "imageUrls": ["/images/products/money/1.png"],
+        "category": "Business"
+    },
+    {
+        "id": 53,
+        "name": "Flying Carpet",
+        "price": 85000000,
+        "imageUrls": ["/images/products/carpet/1.png"],
+        "category": "Outdoor and Adventure"
+    },
+    {
+        "id": 54,
+        "name": "Chicken Burger",
+        "price": 3,
+        "imageUrls": ["/images/products/burger/1.png"],
+        "category": "Outdoor and Adventure"
+    },
+    {
+        "id": 55,
+        "name": "Friends",
+        "price": 5000000,
+        "imageUrls": ["/images/products/friends/1.png"],
+        "category": "Self Care"
     }
 ]
