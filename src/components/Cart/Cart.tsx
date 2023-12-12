@@ -1,7 +1,14 @@
+// Components
 import { ShoppingCartSimple, X } from '@phosphor-icons/react';
 import { CartItem } from './CartItem';
+
+// Hooks
+import { useEffect } from 'react';
 import { useCart } from 'src/context/ShoppingContext';
 import { useBillionaire } from 'src/context/BillionaireContext';
+
+// Utils
+import { disableBodyScroll, enableBodyScroll } from 'src/utils/utils';
 
 import styles from './Cart.module.scss';
 
@@ -11,6 +18,14 @@ export const Cart = () => {
 
     const isCartEmpty: boolean = itemsInCart.length == 0;
     const isBalanceEnough: boolean = (billionaire?.netWorth ?? -1) >= subTotal;
+
+    useEffect(() => {
+        if (isOpen) {
+            disableBodyScroll();
+        }
+
+        return () => enableBodyScroll();
+    }, [isOpen]);
 
     return isOpen ? (
         <>
@@ -40,7 +55,9 @@ export const Cart = () => {
                         </span>
                     </div>
                     <button
-                        onClick={() => addToInventory(subTotal, clearCart, itemsInCart)}
+                        onClick={() =>
+                            addToInventory(subTotal, clearCart, itemsInCart)
+                        }
                         disabled={!isBalanceEnough || isCartEmpty}
                     >
                         Buy
