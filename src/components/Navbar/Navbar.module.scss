@@ -1,3 +1,5 @@
+@import '../../styles/breakpoimts.scss';
+
 .header {
     border-bottom: 1px solid var(--text-primary);
     margin-bottom: 1rem;
@@ -17,11 +19,15 @@
         position: relative;
         display: flex;
         align-items: center;
-        gap: 2rem;
+        gap: 1.75rem;
         color: var(--text-primary);
 
         a {
             font-weight: 600;
+        }
+
+        @include breakpoint-up(medium) {
+            gap: 2rem;
         }
     }
 

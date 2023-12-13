@@ -73,7 +73,7 @@ export const shoppingCartReducer = (state: StateType, action: ReducerActions) =>
 
         case 'REMOVE': {
             if (!action.payload) {
-                throw new Error('action.payload is missing in INCREASE section');
+                throw new Error('action.payload is missing in REMOVE section');
             }
 
             const { id } = action.payload;

@@ -26,7 +26,7 @@ export const Products = () => {
 
     return (
         <section>
-            <h2 className={styles.title}>Larvish loot</h2>
+            <h2 className={styles.title}>Lavish loot</h2>
             <div className={styles.tags}>
                 {categories.map((c: string) => (
                     <p

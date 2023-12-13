@@ -7,6 +7,7 @@ type QuantityBarProps = {
     price: number;
     imageUrls: string[];
     qty: number;
+    category: string;
 };
 
 export const QuantityBar = (product: QuantityBarProps) => {

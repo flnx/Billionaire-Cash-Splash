@@ -1,6 +1,7 @@
 import { useBillionaire } from 'src/context/BillionaireContext';
-import styles from './Card.module.scss';
 import { useCart } from 'src/context/ShoppingContext';
+
+import styles from './Card.module.scss';
 
 type CardProps = {
     id: number;
