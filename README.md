@@ -25,7 +25,7 @@
 
 |          Home page - Desktop          |            Home page - Mobile            |
 | :-----------------------------------: | :--------------------------------------: |
-| ![](./screenshots/1-home-desktop.gif) | ![](./screenshots/1%20home%20mobilex.gif) |
+| ![](./screenshots/1-home-desktop.gif) | ![](./screenshots/1%20home%20mobile.gif) |
 
 ---
 
