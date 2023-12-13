@@ -1,4 +1,4 @@
-## [Billionaire Cash Splash](https://""/) (React + TypeSript + Vite) App
+## [Billionaire Cash Splash](https://https://billionaire-cash-splash.web.app/) (React + TypeSript + Vite) App
 
 ## About
 
