@@ -70,7 +70,7 @@
 
 ---
 
-#### Theme Switch implementation
+#### Products Filtering implementation
 
 -   [Products Filtering](https://github.com/flnx/Billionaire-Cash-Splash/blob/main/src/components/Products/Products.tsx)
 
