@@ -73,6 +73,7 @@
 #### Products Filtering implementation
 
 -   [Products Filtering](https://github.com/flnx/Billionaire-Cash-Splash/blob/main/src/components/Products/Products.tsx)
+-   [Category Tags](https://github.com/flnx/Billionaire-Cash-Splash/blob/main/src/components/CategoryTags/CategoryTags.tsx)
 
 |        Products Filtering - Desktop         |        Products Filtering - Mobile         |
 | :-----------------------------------------: | :----------------------------------------: |

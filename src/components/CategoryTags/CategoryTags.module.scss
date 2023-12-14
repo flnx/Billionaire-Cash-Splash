@@ -1,0 +1,26 @@
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.75rem;
+
+    .tag {
+        font-size: 0.9125rem;
+        background: #b93750;
+        color: #fff;
+        padding: 0.1rem 1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+
+        &:hover,
+        &:focus {
+            background-color: #8d293d;
+            transform: scale(1.05);
+        }
+    }
+}
+
+.tagged {
+    background: #ea9b9b !important;
+}

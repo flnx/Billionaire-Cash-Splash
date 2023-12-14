@@ -1,7 +1,11 @@
 import productsData from 'src/data/products.json';
-import categories from 'src/data/categories.json';
 
+// Components
 import { Product } from './Product';
+import { CategoryTags } from 'src/components/CategoryTags/CategoryTags';
+
+
+// Hooks
 import { useMemo, useState } from 'react';
 
 import styles from './Products.module.scss';
@@ -27,17 +31,8 @@ export const Products = () => {
     return (
         <section>
             <h2 className={styles.title}>Lavish loot</h2>
-            <div className={styles.tags}>
-                {categories.map((c: string) => (
-                    <p
-                        className={`${styles.tag} ${tags.includes(c) ? styles.tagged : ''}`}
-                        onClick={() => categoryHandler(c)}
-                        key={c}
-                    >
-                        {c}
-                    </p>
-                ))}
-            </div>
+            <CategoryTags categoryHandler={categoryHandler} tags={tags} />
+           
             <div className={styles.products}>
                 {updated.map((product) => (
                     <Product key={product.id} {...product} />
