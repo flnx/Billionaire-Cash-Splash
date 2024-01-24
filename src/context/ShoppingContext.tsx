@@ -96,7 +96,7 @@ export const ShoppingContextProvider = ({ children }: ShoppingCardProps) => {
             }}
         >
             {children}
-            <Cart />
+            {isOpen && <Cart />}
         </ShoppingContext.Provider>
     );
 };

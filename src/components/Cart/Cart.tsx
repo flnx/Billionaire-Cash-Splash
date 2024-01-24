@@ -11,63 +11,61 @@ import { useBillionaire } from 'src/context/BillionaireContext';
 import { disableBodyScroll, enableBodyScroll } from 'src/utils/utils';
 
 import styles from './Cart.module.scss';
+import { useDocumentTitle } from 'src/hooks/useDocumentTitle';
 
 export const Cart = () => {
-    const { itemsInCart, subTotal, isOpen, closeCart, clearCart } = useCart();
-    const { billionaire, addToInventory } = useBillionaire();
+  const { itemsInCart, subTotal, isOpen, closeCart, clearCart } = useCart();
+  const { billionaire, addToInventory } = useBillionaire();
+  useDocumentTitle('Cart');
 
-    const isCartEmpty: boolean = itemsInCart.length == 0;
-    const isBalanceEnough: boolean = (billionaire?.netWorth ?? -1) >= subTotal;
+  const isCartEmpty: boolean = itemsInCart.length == 0;
+  const isBalanceEnough: boolean = (billionaire?.netWorth ?? -1) >= subTotal;
 
-    useEffect(() => {
-        if (isOpen) {
-            disableBodyScroll();
-        }
+  useEffect(() => {
+    if (isOpen) {
+      disableBodyScroll();
+    }
 
-        return () => enableBodyScroll();
-    }, [isOpen]);
+    return () => enableBodyScroll();
+  }, [isOpen]);
 
-    return isOpen ? (
-        <>
-            <aside className={styles.cart}>
-                <div className={styles.header}>
-                    <ShoppingCartSimple size={32} />
-                    <div className={styles.balance}>
-                        <p>BALANCE</p>
-                        <p>${billionaire?.netWorth?.toLocaleString() || 0}</p>
-                    </div>
-                    <X size={32} onClick={closeCart} className="pointer" />
-                </div>
-                <section className={styles.items}>
-                    {isCartEmpty && (
-                        <p className={styles.empty}>Your Cart is Empty</p>
-                    )}
-                    {itemsInCart.map((item) => (
-                        <CartItem {...item} key={item.id} />
-                    ))}
-                </section>
+  return isOpen ? (
+    <>
+      <aside className={styles.cart}>
+        <div className={styles.header}>
+          <ShoppingCartSimple size={32} />
+          <div className={styles.balance}>
+            <p>BALANCE</p>
+            <p>${billionaire?.netWorth?.toLocaleString() || 0}</p>
+          </div>
+          <X size={32} onClick={closeCart} className="pointer" />
+        </div>
+        <section className={styles.items}>
+          {isCartEmpty && <p className={styles.empty}>Your Cart is Empty</p>}
+          {itemsInCart.map((item) => (
+            <CartItem {...item} key={item.id} />
+          ))}
+        </section>
 
-                <div className={styles.checkout}>
-                    <div className={styles.total}>
-                        <span>Subtotal:</span>
-                        <span className={!isBalanceEnough ? styles.error : ''}>
-                            ${subTotal.toLocaleString()}
-                        </span>
-                    </div>
-                    <button
-                        onClick={() =>
-                            addToInventory(subTotal, clearCart, itemsInCart)
-                        }
-                        disabled={!isBalanceEnough || isCartEmpty}
-                    >
-                        Buy
-                    </button>
-                    <button onClick={clearCart}>Clear Cart</button>
-                </div>
-            </aside>
-            <div className={styles.overlay} onClick={closeCart} />
-        </>
-    ) : (
-        <></>
-    );
+        <div className={styles.checkout}>
+          <div className={styles.total}>
+            <span>Subtotal:</span>
+            <span className={!isBalanceEnough ? styles.error : ''}>
+              ${subTotal.toLocaleString()}
+            </span>
+          </div>
+          <button
+            onClick={() => addToInventory(subTotal, clearCart, itemsInCart)}
+            disabled={!isBalanceEnough || isCartEmpty}
+          >
+            Buy
+          </button>
+          <button onClick={clearCart}>Clear Cart</button>
+        </div>
+      </aside>
+      <div className={styles.overlay} onClick={closeCart} />
+    </>
+  ) : (
+    <></>
+  );
 };
