@@ -1,6 +1,8 @@
 // Components
 import { ShoppingCartSimple, X } from '@phosphor-icons/react';
 import { CartItem } from './CartItem';
+import { PopUpContainer } from '../PopUpContainer/PopUpContainer';
+import { AddedToCartPopUp } from '../AddedToCartPopUp/AddedToCartPopUp';
 
 // Hooks
 import { useEffect } from 'react';
@@ -14,58 +16,83 @@ import styles from './Cart.module.scss';
 import { useDocumentTitle } from 'src/hooks/useDocumentTitle';
 
 export const Cart = () => {
-  const { itemsInCart, subTotal, isOpen, closeCart, clearCart } = useCart();
-  const { billionaire, addToInventory } = useBillionaire();
-  useDocumentTitle('Cart');
+    const {
+        itemsInCart,
+        subTotal,
+        isOpen,
+        closeCart,
+        clearCart,
+        addPopUpItem,
+        itemsToPopUp,
+    } = useCart();
+    const { billionaire, addToInventory } = useBillionaire();
 
-  const isCartEmpty: boolean = itemsInCart.length == 0;
-  const isBalanceEnough: boolean = (billionaire?.netWorth ?? -1) >= subTotal;
+    useDocumentTitle('Cart');
 
-  useEffect(() => {
-    if (isOpen) {
-      disableBodyScroll();
-    }
+    const isCartEmpty: boolean = itemsInCart.length == 0;
+    const isBalanceEnough: boolean = (billionaire?.netWorth ?? -1) >= subTotal;
 
-    return () => enableBodyScroll();
-  }, [isOpen]);
+    useEffect(() => {
+        if (isOpen) {
+            disableBodyScroll();
+        }
 
-  return isOpen ? (
-    <>
-      <aside className={styles.cart}>
-        <div className={styles.header}>
-          <ShoppingCartSimple size={32} />
-          <div className={styles.balance}>
-            <p>BALANCE</p>
-            <p>${billionaire?.netWorth?.toLocaleString() || 0}</p>
-          </div>
-          <X size={32} onClick={closeCart} className="pointer" />
-        </div>
-        <section className={styles.items}>
-          {isCartEmpty && <p className={styles.empty}>Your Cart is Empty</p>}
-          {itemsInCart.map((item) => (
-            <CartItem {...item} key={item.id} />
-          ))}
-        </section>
+        return () => enableBodyScroll();
+    }, [isOpen]);
 
-        <div className={styles.checkout}>
-          <div className={styles.total}>
-            <span>Subtotal:</span>
-            <span className={!isBalanceEnough ? styles.error : ''}>
-              ${subTotal.toLocaleString()}
-            </span>
-          </div>
-          <button
-            onClick={() => addToInventory(subTotal, clearCart, itemsInCart)}
-            disabled={!isBalanceEnough || isCartEmpty}
-          >
-            Buy
-          </button>
-          <button onClick={clearCart}>Clear Cart</button>
-        </div>
-      </aside>
-      <div className={styles.overlay} onClick={closeCart} />
-    </>
-  ) : (
-    <></>
-  );
+    const finishedOrderMsg = itemsToPopUp.find(i => i.includes("Congrats"));
+
+    return isOpen ? (
+        <>
+            <PopUpContainer>
+                {   
+                    finishedOrderMsg && (
+                        <AddedToCartPopUp item={finishedOrderMsg} key={finishedOrderMsg} />
+                    )
+                }
+            </PopUpContainer>
+            <aside className={styles.cart}>
+                <div className={styles.header}>
+                    <ShoppingCartSimple size={32} />
+                    <div className={styles.balance}>
+                        <p>BALANCE</p>
+                        <p>${billionaire?.netWorth?.toLocaleString() || 0}</p>
+                    </div>
+                    <X size={32} onClick={closeCart} className="pointer" />
+                </div>
+                <section className={styles.items}>
+                    {isCartEmpty && <p className={styles.empty}>Your Cart is Empty</p>}
+                    {itemsInCart.map((item) => (
+                        <CartItem {...item} key={item.id} />
+                    ))}
+                </section>
+
+                <div className={styles.checkout}>
+                    <div className={styles.total}>
+                        <span>Subtotal:</span>
+                        <span className={!isBalanceEnough ? styles.error : ''}>
+                            ${subTotal.toLocaleString()}
+                        </span>
+                    </div>
+                    <button
+                        onClick={() => {
+                            if (isBalanceEnough && !isCartEmpty) {
+                                addToInventory(subTotal, clearCart, itemsInCart);
+                                addPopUpItem(
+                                    'Congrats! Loot landed. Check your inventory!'
+                                );
+                            }
+                        }}
+                        disabled={!isBalanceEnough || isCartEmpty}
+                    >
+                        Buy
+                    </button>
+                    <button onClick={clearCart}>Clear Cart</button>
+                </div>
+            </aside>
+            <div className={styles.overlay} onClick={closeCart} />
+        </>
+    ) : (
+        <></>
+    );
 };

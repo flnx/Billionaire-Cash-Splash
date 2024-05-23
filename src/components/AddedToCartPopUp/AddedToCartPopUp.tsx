@@ -5,7 +5,13 @@ type AddedToCartPopUpProps = {
 };
 
 export const AddedToCartPopUp = ({ item }: AddedToCartPopUpProps) => {
-    return (
+    const isFinishOrder = item.includes('Congrats');
+
+    return isFinishOrder ? (
+        <p className={styles.popup}>
+            <span>{item}</span>
+        </p>
+    ) : (
         <p className={styles.popup}>
             <span>{item}</span> has been added to your cart
         </p>
