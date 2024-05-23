@@ -35,7 +35,7 @@ export const Product = (product: ProductProps) => {
             {isTherePopUps && (
                 <PopUpContainer>
                     {itemsToPopUp.map((i) => (
-                        <AddedToCartPopUp item={i} key={i}/>
+                        <AddedToCartPopUp item={i} key={i} />
                     ))}
                 </PopUpContainer>
             )}
@@ -49,16 +49,18 @@ export const Product = (product: ProductProps) => {
                     <span aria-label="Price">${price.toLocaleString()}</span>
                 </div>
 
-                {qty == 0 ? (
-                    <PrimaryButton increaseCartQtyHandler={addProduct}>
-                        <div className="flex">
-                            <PlusCircle size={28} />
-                            <span>Add To Cart</span>
-                        </div>
-                    </PrimaryButton>
-                ) : (
-                    <QuantityBar {...product} qty={qty} />
-                )}
+                <div className={styles.footer}>
+                    {qty == 0 ? (
+                        <PrimaryButton increaseCartQtyHandler={addProduct}>
+                            <div className="flex">
+                                <PlusCircle size={28} />
+                                <span>Add To Cart</span>
+                            </div>
+                        </PrimaryButton>
+                    ) : (
+                        <QuantityBar {...product} qty={qty} />
+                    )}
+                </div>
             </div>
         </>
     );
